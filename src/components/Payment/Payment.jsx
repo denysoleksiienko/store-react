@@ -2,10 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+
 import styled from 'styled-components';
 
 import { BreadcrumbItem } from 'components/BreadcrumbItem/';
+import { ButtonComponent } from 'components/ButtonComponent/';
 import { Orders } from 'components/Orders';
 
 export const Payment = () => {
@@ -36,13 +37,13 @@ export const Payment = () => {
               </Form.Group>
 
               <div className="d-flex">
-                <Form.Group as={Col} md="3">
+                <Form.Group as={Col} md="4">
                   <Label>Expire Date</Label>
                   <Form.Control style={{ textAlign: 'center' }} type="text" placeholder="MM / YY" required />
                   <Form.Control.Feedback type="invalid">Please provide a valid date.</Form.Control.Feedback>
                 </Form.Group>
 
-                <Form.Group as={Col} md="3">
+                <Form.Group as={Col} md="4">
                   <Label>Security Code</Label>
                   <Form.Control style={{ textAlign: 'center' }} type="password" required />
                   <Form.Control.Feedback type="invalid">Please provide a valid security code.</Form.Control.Feedback>
@@ -51,9 +52,7 @@ export const Payment = () => {
             </InputsContainer>
 
             <Form.Group as={Col} md="6">
-              <Button variant="primary" size="lg" style={{ backgroundColor: '#9932CC', width: '100%' }}>
-                Continue
-              </Button>
+              <ButtonComponent title="Pay Securely" />
             </Form.Group>
           </Form>
         </Col>

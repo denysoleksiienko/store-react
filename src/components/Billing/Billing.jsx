@@ -2,10 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+
 import styled from 'styled-components';
 
 import { BreadcrumbItem } from 'components/BreadcrumbItem/';
+import { ButtonComponent } from 'components/ButtonComponent/';
 import { Orders } from 'components/Orders';
 
 export const Billing = () => {
@@ -61,9 +62,7 @@ export const Billing = () => {
             </InputsContainer>
 
             <Form.Group as={Col} md="6">
-              <Button variant="primary" size="lg" style={{ backgroundColor: '#9932CC', width: '100%' }}>
-                Continue
-              </Button>
+              <ButtonComponent title="Continue" />
             </Form.Group>
           </Form>
         </Col>
