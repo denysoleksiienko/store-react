@@ -14,6 +14,7 @@ export const Billing = () => {
       <Row>
         <Col lg={7}>
           <BreadcrumbItem />
+
           <Title>Billing Information</Title>
 
           <Form className="form">
@@ -75,16 +76,17 @@ export const Billing = () => {
 };
 
 const Title = styled.h1`
+  display: inline-block;
   font-size: 2em;
   margin-left: 16px;
   color: #9932cc;
 `;
 
 const Label = styled.label`
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #9932cc;
 `;
 
 const InputsContainer = styled.div`
-  margin-top: 35px;
+  margin-top: 25px;
 `;

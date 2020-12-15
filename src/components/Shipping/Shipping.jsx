@@ -67,6 +67,7 @@ export const Shipping = () => {
             </Form.Group>
           </Form>
         </Col>
+
         <Col lg={5} style={{ background: '#e9ecef' }}>
           <Orders />
         </Col>
@@ -82,7 +83,7 @@ const Title = styled.h1`
 `;
 
 const Label = styled.label`
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #9932cc;
 `;
 
@@ -92,5 +93,5 @@ const Span = styled.span`
 `;
 
 const InputsContainer = styled.div`
-  margin-top: 35px;
+  margin-top: 25px;
 `;

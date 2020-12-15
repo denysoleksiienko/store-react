@@ -6,7 +6,10 @@ export const App = () => {
   return (
     <div>
       <Shipping />
-      {/* <Payment /> */}
+
+      <Billing />
+
+      <Payment />
     </div>
   );
 };

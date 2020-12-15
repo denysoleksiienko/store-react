@@ -16,6 +16,11 @@ export const Payment = () => {
           <BreadcrumbItem />
           <Title>Payment</Title>
 
+          <Secure>
+            <Icon src="https://www.flaticon.com/svg/static/icons/svg/1043/1043438.svg" alt="icon" />
+            <Span>This is a secure 128-bit SSL encrypted payment</Span>
+          </Secure>
+
           <Form className="form">
             <InputsContainer>
               <Form.Group as={Col} md="10">
@@ -67,10 +72,25 @@ const Title = styled.h1`
 `;
 
 const Label = styled.label`
-  font-size: 1em;
+  font-size: 1.2em;
   color: #9932cc;
 `;
 
+const Secure = styled.div`
+  margin-left: 16px;
+  margin-top: 15px;
+`;
+
+const Icon = styled.img`
+  width: 25px;
+  height: 25px;
+`;
+
+const Span = styled.span`
+  font-size: 18px;
+  padding-left: 10px;
+`;
+
 const InputsContainer = styled.div`
-  margin-top: 35px;
+  margin-top: 25px;
 `;
