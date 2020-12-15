@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// import './Orders.css';
-
 export const Orders = () => {
   const [data, setData] = React.useState([
     {
