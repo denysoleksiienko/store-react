@@ -47,7 +47,7 @@ export const Orders = () => {
           <p>Shipping</p>
           <p>Taxes</p>
           <hr />
-          <p>Total</p>
+          <Total>Total</Total>
         </Cost>
       </Summary>
     </>
@@ -79,4 +79,9 @@ const Item = styled.li`
   padding-bottom: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+`;
+
+const Total = styled.span`
+  font-weight: bold;
+  color: #310062;
 `;
