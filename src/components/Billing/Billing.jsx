@@ -3,11 +3,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-import styled from 'styled-components';
+import { BreadcrumbItem } from 'components';
+import { ButtonComponent } from 'components';
+import { Orders } from 'components';
 
-import { BreadcrumbItem } from 'components/BreadcrumbItem/';
-import { ButtonComponent } from 'components/ButtonComponent/';
-import { Orders } from 'components/Orders';
+import { Title, Label, InputsContainer } from 'styled';
 
 export const Billing = () => {
   return (
@@ -73,19 +73,3 @@ export const Billing = () => {
     </Container>
   );
 };
-
-const Title = styled.h1`
-  display: inline-block;
-  font-size: 2em;
-  margin-left: 16px;
-  color: #9932cc;
-`;
-
-const Label = styled.label`
-  font-size: 1.2em;
-  color: #9932cc;
-`;
-
-const InputsContainer = styled.div`
-  margin-top: 25px;
-`;

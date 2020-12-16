@@ -1,7 +1,7 @@
-import { Billing } from 'components/Billing';
-import { FinishOrders } from 'components/FinishOrders/FinishOrders';
-import { Payment } from 'components/Payment';
-import { Shipping } from 'components/Shipping';
+import { Billing } from 'components';
+import { FinishOrders } from 'components';
+import { Payment } from 'components';
+import { Shipping } from 'components';
 
 export const App = () => {
   return (

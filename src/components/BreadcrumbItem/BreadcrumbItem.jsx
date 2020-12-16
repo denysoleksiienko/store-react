@@ -1,5 +1,4 @@
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
-import './BreadcrumbItem.css';
 
 export const BreadcrumbItem = () => {
   return (

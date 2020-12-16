@@ -5,9 +5,9 @@ import Form from 'react-bootstrap/Form';
 
 import styled from 'styled-components';
 
-import { BreadcrumbItem } from 'components/BreadcrumbItem/';
-import { ButtonComponent } from 'components/ButtonComponent/';
-import { Orders } from 'components/Orders';
+import { BreadcrumbItem } from 'components';
+import { ButtonComponent } from 'components';
+import { Orders } from 'components';
 
 export const Payment = () => {
   return (
