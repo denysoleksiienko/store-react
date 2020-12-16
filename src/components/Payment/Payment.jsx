@@ -3,11 +3,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-import styled from 'styled-components';
-
 import { BreadcrumbItem } from 'components';
 import { ButtonComponent } from 'components';
 import { Orders } from 'components';
+
+import { Title, Label, SecureInfo, InputsWrap, Icon, Span } from 'styled';
 
 export const Payment = () => {
   return (
@@ -17,20 +17,20 @@ export const Payment = () => {
           <BreadcrumbItem />
           <Title>Payment</Title>
 
-          <Secure>
+          <SecureInfo>
             <Icon src="https://www.flaticon.com/svg/static/icons/svg/1043/1043438.svg" alt="icon" />
             <Span>This is a secure 128-bit SSL encrypted payment</Span>
-          </Secure>
+          </SecureInfo>
 
           <Form className="form">
-            <InputsContainer>
+            <InputsWrap>
               <Form.Group as={Col} md="10">
                 <Label>Cardholder Name</Label>
                 <Form.Control type="text" placeholder="Name as it appears on your card" />
               </Form.Group>
-            </InputsContainer>
+            </InputsWrap>
 
-            <InputsContainer>
+            <InputsWrap>
               <Form.Group as={Col} md="10">
                 <Label>Card Number</Label>
                 <Form.Control type="number" placeholder="XXXX XXXX XXXX XXXX XXXX" />
@@ -49,7 +49,7 @@ export const Payment = () => {
                   <Form.Control.Feedback type="invalid">Please provide a valid security code.</Form.Control.Feedback>
                 </Form.Group>
               </div>
-            </InputsContainer>
+            </InputsWrap>
 
             <Form.Group as={Col} md="6">
               <ButtonComponent title="Pay Securely" />
@@ -63,33 +63,3 @@ export const Payment = () => {
     </Container>
   );
 };
-
-const Title = styled.h1`
-  font-size: 2em;
-  margin-left: 16px;
-  color: #9932cc;
-`;
-
-const Label = styled.label`
-  font-size: 1.2em;
-  color: #9932cc;
-`;
-
-const Secure = styled.div`
-  margin-left: 16px;
-  margin-top: 15px;
-`;
-
-const Icon = styled.img`
-  width: 25px;
-  height: 25px;
-`;
-
-const Span = styled.span`
-  font-size: 18px;
-  padding-left: 10px;
-`;
-
-const InputsContainer = styled.div`
-  margin-top: 25px;
-`;

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { SummaryTitle, SummaryWrap, SummaryList, SummaryCost, SummaryItem, SummaryTotal } from 'styled';
 
 export const Orders = () => {
   const [data, setData] = React.useState([
@@ -26,60 +26,28 @@ export const Orders = () => {
 
   return (
     <>
-      <Title>Order Summary</Title>
-      <Summary>
-        <List>
+      <SummaryTitle>Order Summary</SummaryTitle>
+      <SummaryWrap>
+        <SummaryList>
           {data.map(({ id, name, qty, price, color }) => (
-            <Item key={id}>
+            <SummaryItem key={id}>
               <span>
                 {name} {price}
               </span>
               <span>{color}</span>
               <span>Quantity: {qty}</span>
-            </Item>
+            </SummaryItem>
           ))}
-        </List>
+        </SummaryList>
 
-        <Cost>
+        <SummaryCost>
           <p>Subtotal</p>
           <p>Shipping</p>
           <p>Taxes</p>
           <hr />
-          <Total>Total</Total>
-        </Cost>
-      </Summary>
+          <SummaryTotal>Total</SummaryTotal>
+        </SummaryCost>
+      </SummaryWrap>
     </>
   );
 };
-
-const Title = styled.h5`
-  font-size: 1.2em;
-  color: #9932cc;
-  margin: 12px;
-`;
-
-const Summary = styled.div`
-  margin-left: 12px;
-`;
-
-const Cost = styled.div`
-  flex-flow: column;
-`;
-
-const List = styled.ul`
-  list-style: none;
-  padding: 0;
-`;
-
-const Item = styled.li`
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-`;
-
-const Total = styled.span`
-  font-weight: bold;
-  color: #310062;
-`;

@@ -7,7 +7,7 @@ import { BreadcrumbItem } from 'components';
 import { ButtonComponent } from 'components';
 import { Orders } from 'components';
 
-import { Title, Label, InputsContainer } from 'styled';
+import { Title, Label, InputsWrap } from 'styled';
 
 export const Billing = () => {
   return (
@@ -19,7 +19,7 @@ export const Billing = () => {
           <Title>Billing Information</Title>
 
           <Form className="form">
-            <InputsContainer>
+            <InputsWrap>
               <Form.Group as={Col} md="10">
                 <Label>Billing Contact</Label>
                 <Form.Control type="text" placeholder="Full Name" />
@@ -27,9 +27,9 @@ export const Billing = () => {
               <Form.Group as={Col} md="10">
                 <Form.Control type="text" placeholder="Email Address" />
               </Form.Group>
-            </InputsContainer>
+            </InputsWrap>
 
-            <InputsContainer>
+            <InputsWrap>
               <Form.Group as={Col} md="10">
                 <Label>Billing Address</Label>
                 <Form.Control type="text" placeholder="Street Address" />
@@ -59,7 +59,7 @@ export const Billing = () => {
                   <Form.Control.Feedback type="invalid">Please provide a valid zip.</Form.Control.Feedback>
                 </Form.Group>
               </div>
-            </InputsContainer>
+            </InputsWrap>
 
             <Form.Group as={Col} md="6">
               <ButtonComponent title="Continue" />

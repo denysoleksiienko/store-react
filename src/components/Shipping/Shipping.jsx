@@ -3,11 +3,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-import styled from 'styled-components';
-
 import { BreadcrumbItem } from 'components';
 import { ButtonComponent } from 'components';
 import { Orders } from 'components';
+
+import { Title, Label, InputsWrap, InputSpan } from 'styled';
 
 export const Shipping = () => {
   return (
@@ -18,18 +18,18 @@ export const Shipping = () => {
           <Title>Shipping Info</Title>
 
           <Form className="form">
-            <InputsContainer>
+            <InputsWrap>
               <Form.Group as={Col} md="10">
                 <Label>Recipient</Label>
                 <Form.Control type="text" placeholder="Full Name" />
               </Form.Group>
               <Form.Group className="d-flex" as={Col} md="8">
                 <Form.Control type="phone" placeholder="Daytime Phone" />
-                <Span>For delivery questions only</Span>
+                <InputSpan>For delivery questions only</InputSpan>
               </Form.Group>
-            </InputsContainer>
+            </InputsWrap>
 
-            <InputsContainer>
+            <InputsWrap>
               <Form.Group as={Col} md="10">
                 <Label>Address</Label>
                 <Form.Control type="text" placeholder="Street Address" />
@@ -59,7 +59,7 @@ export const Shipping = () => {
                   <Form.Control.Feedback type="invalid">Please provide a valid zip.</Form.Control.Feedback>
                 </Form.Group>
               </div>
-            </InputsContainer>
+            </InputsWrap>
 
             <Form.Group as={Col} md="6">
               <ButtonComponent title="Continue" />
@@ -74,23 +74,3 @@ export const Shipping = () => {
     </Container>
   );
 };
-
-const Title = styled.h1`
-  font-size: 2em;
-  margin-left: 16px;
-  color: #9932cc;
-`;
-
-const Label = styled.label`
-  font-size: 1.2em;
-  color: #9932cc;
-`;
-
-const Span = styled.span`
-  margin-left: 20px;
-  font-size: 12px;
-`;
-
-const InputsContainer = styled.div`
-  margin-top: 25px;
-`;
