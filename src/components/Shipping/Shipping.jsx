@@ -1,15 +1,20 @@
+import { useHistory } from 'react-router-dom';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-import { BreadcrumbItem } from 'components';
-import { ButtonComponent } from 'components';
-import { Orders } from 'components';
-
+import { ButtonComponent, Orders, BreadcrumbItem } from 'components';
+import { BILLING } from 'constants/pathnames';
 import { Title, Label, InputsWrap, InputSpan } from 'styled';
 
 export const Shipping = () => {
+  const history = useHistory();
+  const handleNext = () => {
+    history.push(BILLING);
+  };
+
   return (
     <Container>
       <Row>
@@ -62,7 +67,7 @@ export const Shipping = () => {
             </InputsWrap>
 
             <Form.Group as={Col} md="6">
-              <ButtonComponent title="Continue" />
+              <ButtonComponent title="Continue" onClick={handleNext} />
             </Form.Group>
           </Form>
         </Col>
