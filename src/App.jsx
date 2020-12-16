@@ -1,18 +1,8 @@
-import { Billing } from 'components';
-import { FinishOrders } from 'components';
-import { Payment } from 'components';
-import { Shipping } from 'components';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes } from 'routes/Routes';
 
-export const App = () => {
-  return (
-    <div>
-      <Shipping />
-
-      <Billing />
-
-      <Payment />
-
-      <FinishOrders />
-    </div>
-  );
-};
+export const App = () => (
+  <Router>
+    <Routes />
+  </Router>
+);
