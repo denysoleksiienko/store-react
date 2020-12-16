@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 
 import { BreadcrumbItem, ButtonComponent, Orders } from 'components';
 import { ORDER } from 'constants/pathnames';
-import { RowWrap, Title, Label, SecureInfo, InputsWrap, Icon, Span, ColOrders } from 'styled';
+import { RowWrap, Title, Label, SecureInfo, InputsWrap, Icon, Span, ColOrders, FormGroupInner } from 'styled';
 
 export const Payment = () => {
   const history = useHistory();
@@ -40,7 +40,7 @@ export const Payment = () => {
                 <Form.Control type="number" placeholder="XXXX XXXX XXXX XXXX XXXX" />
               </Form.Group>
 
-              <div className="d-flex">
+              <FormGroupInner>
                 <Form.Group as={Col} md="4">
                   <Label>Expire Date</Label>
                   <Form.Control type="text" placeholder="MM / YY" required />
@@ -52,7 +52,7 @@ export const Payment = () => {
                   <Form.Control type="password" required />
                   <Form.Control.Feedback type="invalid">Please provide a valid security code.</Form.Control.Feedback>
                 </Form.Group>
-              </div>
+              </FormGroupInner>
             </InputsWrap>
 
             <Form.Group as={Col} md="6">

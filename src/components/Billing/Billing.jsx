@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 
 import { Orders, ButtonComponent, BreadcrumbItem } from 'components';
 import { PAYMENT } from 'constants/pathnames';
-import { RowWrap, Title, Label, InputsWrap, ColOrders } from 'styled';
+import { RowWrap, Title, Label, InputsWrap, ColOrders, FormGroupInner } from 'styled';
 
 export const Billing = () => {
   const history = useHistory();
@@ -47,7 +47,7 @@ export const Billing = () => {
                 <Form.Control.Feedback type="invalid">Please provide a valid city.</Form.Control.Feedback>
               </Form.Group>
 
-              <div className="d-flex">
+              <FormGroupInner className="d-flex">
                 <Form.Group as={Col} md="6">
                   <Form.Control as="select" custom>
                     <option>Country</option>
@@ -62,7 +62,7 @@ export const Billing = () => {
                   <Form.Control type="text" placeholder="Zip" required />
                   <Form.Control.Feedback type="invalid">Please provide a valid zip.</Form.Control.Feedback>
                 </Form.Group>
-              </div>
+              </FormGroupInner>
             </InputsWrap>
 
             <Form.Group as={Col} md="6">
