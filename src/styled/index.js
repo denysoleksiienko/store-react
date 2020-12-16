@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Button from 'react-bootstrap/Button';
+
+import { DEVICES } from 'constants/devices';
 
 export const BreadcrumbWrap = styled(Breadcrumb)`
   ol.breadcrumb {
@@ -13,6 +16,14 @@ export const BreadcrumbWrap = styled(Breadcrumb)`
 export const RowWrap = styled(Row)`
   height: 70vh;
 `;
+
+/*
+export const ColDelivery = styled(Col)`
+  @media ${DEVICES.large} {
+    max-width: 992px;
+  }
+`;
+*/
 
 export const ColOrders = styled(Col)`
   background: #e9ecef;
