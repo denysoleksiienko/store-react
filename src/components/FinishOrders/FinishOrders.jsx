@@ -1,15 +1,14 @@
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { Title, OrderWrap } from 'styled';
+import { RowWrap, Title, OrderWrap, ColOrders } from 'styled';
 
 import { Orders } from 'components';
 
 export const FinishOrders = () => {
   return (
     <Container>
-      <Row>
+      <RowWrap>
         <Col lg={7}>
           <Title>Thank you for your order!</Title>
           <OrderWrap>
@@ -19,10 +18,10 @@ export const FinishOrders = () => {
             <p>Print Recipe</p>
           </OrderWrap>
         </Col>
-        <Col lg={5} style={{ background: '#e9ecef' }}>
+        <ColOrders lg={5}>
           <Orders />
-        </Col>
-      </Row>
+        </ColOrders>
+      </RowWrap>
     </Container>
   );
 };

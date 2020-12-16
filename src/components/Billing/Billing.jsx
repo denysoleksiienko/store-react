@@ -1,13 +1,12 @@
 import { useHistory } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 import { Orders, ButtonComponent, BreadcrumbItem } from 'components';
 import { PAYMENT } from 'constants/pathnames';
-import { Title, Label, InputsWrap } from 'styled';
+import { RowWrap, Title, Label, InputsWrap, ColOrders } from 'styled';
 
 export const Billing = () => {
   const history = useHistory();
@@ -17,13 +16,13 @@ export const Billing = () => {
 
   return (
     <Container>
-      <Row>
+      <RowWrap>
         <Col lg={7}>
           <BreadcrumbItem />
 
           <Title>Billing Information</Title>
 
-          <Form className="form">
+          <Form>
             <InputsWrap>
               <Form.Group as={Col} md="10">
                 <Label>Billing Contact</Label>
@@ -52,10 +51,10 @@ export const Billing = () => {
                 <Form.Group as={Col} md="6">
                   <Form.Control as="select" custom>
                     <option>Country</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option>USA</option>
+                    <option>UA</option>
+                    <option>EU</option>
+                    <option>CA</option>
                   </Form.Control>
                 </Form.Group>
 
@@ -71,10 +70,10 @@ export const Billing = () => {
             </Form.Group>
           </Form>
         </Col>
-        <Col lg={5} style={{ background: '#e9ecef' }}>
+        <ColOrders lg={5}>
           <Orders />
-        </Col>
-      </Row>
+        </ColOrders>
+      </RowWrap>
     </Container>
   );
 };

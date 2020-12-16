@@ -1,13 +1,12 @@
 import { useHistory } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 import { ButtonComponent, Orders, BreadcrumbItem } from 'components';
 import { BILLING } from 'constants/pathnames';
-import { Title, Label, InputsWrap, InputSpan } from 'styled';
+import { RowWrap, Title, Label, InputsWrap, InputSpan, ColOrders, FormGroupInner } from 'styled';
 
 export const Shipping = () => {
   const history = useHistory();
@@ -17,20 +16,22 @@ export const Shipping = () => {
 
   return (
     <Container>
-      <Row>
+      <RowWrap>
         <Col lg={7}>
           <BreadcrumbItem />
           <Title>Shipping Info</Title>
 
-          <Form className="form">
+          <Form>
             <InputsWrap>
               <Form.Group as={Col} md="10">
                 <Label>Recipient</Label>
                 <Form.Control type="text" placeholder="Full Name" />
               </Form.Group>
-              <Form.Group className="d-flex" as={Col} md="8">
-                <Form.Control type="phone" placeholder="Daytime Phone" />
-                <InputSpan>For delivery questions only</InputSpan>
+              <Form.Group as={Col} md="8">
+                <FormGroupInner>
+                  <Form.Control type="phone" placeholder="Daytime Phone" />
+                  <InputSpan>For delivery questions only</InputSpan>
+                </FormGroupInner>
               </Form.Group>
             </InputsWrap>
 
@@ -45,25 +46,23 @@ export const Shipping = () => {
 
               <Form.Group as={Col} md="10">
                 <Form.Control type="text" placeholder="City" required />
-                <Form.Control.Feedback type="invalid">Please provide a valid city.</Form.Control.Feedback>
               </Form.Group>
 
-              <div className="d-flex">
+              <FormGroupInner>
                 <Form.Group as={Col} md="6">
                   <Form.Control as="select" custom>
                     <option>Country</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option>USA</option>
+                    <option>UA</option>
+                    <option>EU</option>
+                    <option>CA</option>
                   </Form.Control>
                 </Form.Group>
 
                 <Form.Group as={Col} md="4">
                   <Form.Control type="text" placeholder="Zip" required />
-                  <Form.Control.Feedback type="invalid">Please provide a valid zip.</Form.Control.Feedback>
                 </Form.Group>
-              </div>
+              </FormGroupInner>
             </InputsWrap>
 
             <Form.Group as={Col} md="6">
@@ -72,10 +71,10 @@ export const Shipping = () => {
           </Form>
         </Col>
 
-        <Col lg={5} style={{ background: '#e9ecef' }}>
+        <ColOrders lg={5}>
           <Orders />
-        </Col>
-      </Row>
+        </ColOrders>
+      </RowWrap>
     </Container>
   );
 };

@@ -1,9 +1,25 @@
 import styled from 'styled-components';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Button from 'react-bootstrap/Button';
+
+export const BreadcrumbWrap = styled(Breadcrumb)`
+  ol.breadcrumb {
+    background: #fff;
+  }
+`;
+
+export const RowWrap = styled(Row)`
+  height: 70vh;
+`;
+
+export const ColOrders = styled(Col)`
+  background: #e9ecef;
+`;
 
 export const Title = styled.h1`
   font-size: 2em;
-  margin-top: 50px;
   margin-left: 16px;
   color: #9932cc;
 `;
@@ -37,8 +53,7 @@ export const SummaryWrap = styled.div`
   margin-left: 12px;
 `;
 
-export const SummaryList = styled.ul`
-  list-style: none;
+export const SummaryList = styled.div`
   padding: 0;
 `;
 
@@ -46,12 +61,21 @@ export const SummaryCost = styled.div`
   flex-flow: column;
 `;
 
-export const SummaryItem = styled.li`
-  display: flex;
-  flex-direction: column;
+export const SummaryItem = styled.div`
   padding-bottom: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+`;
+
+export const SummaryItemInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const ProductInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 65%;
 `;
 
 export const SummaryTotal = styled.span`
@@ -77,4 +101,8 @@ export const Span = styled.span`
 export const InputSpan = styled.span`
   margin-left: 20px;
   font-size: 12px;
+`;
+
+export const FormGroupInner = styled.div`
+  display: flex;
 `;

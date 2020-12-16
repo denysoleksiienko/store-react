@@ -1,13 +1,12 @@
 import { useHistory } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 import { BreadcrumbItem, ButtonComponent, Orders } from 'components';
 import { ORDER } from 'constants/pathnames';
-import { Title, Label, SecureInfo, InputsWrap, Icon, Span } from 'styled';
+import { RowWrap, Title, Label, SecureInfo, InputsWrap, Icon, Span, ColOrders } from 'styled';
 
 export const Payment = () => {
   const history = useHistory();
@@ -17,7 +16,7 @@ export const Payment = () => {
 
   return (
     <Container>
-      <Row>
+      <RowWrap>
         <Col lg={7}>
           <BreadcrumbItem />
           <Title>Payment</Title>
@@ -27,7 +26,7 @@ export const Payment = () => {
             <Span>This is a secure 128-bit SSL encrypted payment</Span>
           </SecureInfo>
 
-          <Form className="form">
+          <Form>
             <InputsWrap>
               <Form.Group as={Col} md="10">
                 <Label>Cardholder Name</Label>
@@ -44,13 +43,13 @@ export const Payment = () => {
               <div className="d-flex">
                 <Form.Group as={Col} md="4">
                   <Label>Expire Date</Label>
-                  <Form.Control style={{ textAlign: 'center' }} type="text" placeholder="MM / YY" required />
+                  <Form.Control type="text" placeholder="MM / YY" required />
                   <Form.Control.Feedback type="invalid">Please provide a valid date.</Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group as={Col} md="4">
                   <Label>Security Code</Label>
-                  <Form.Control style={{ textAlign: 'center' }} type="password" required />
+                  <Form.Control type="password" required />
                   <Form.Control.Feedback type="invalid">Please provide a valid security code.</Form.Control.Feedback>
                 </Form.Group>
               </div>
@@ -61,10 +60,10 @@ export const Payment = () => {
             </Form.Group>
           </Form>
         </Col>
-        <Col lg={5} style={{ background: '#e9ecef' }}>
+        <ColOrders lg={5}>
           <Orders />
-        </Col>
-      </Row>
+        </ColOrders>
+      </RowWrap>
     </Container>
   );
 };
