@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 const COLORS = {
   white: '#fff',
   orchid: '#9932cc',
-  solitude: 'e9ecef',
+  solitude: '#e9ecef',
 };
 
 export const BreadcrumbWrap = styled(Breadcrumb)`
