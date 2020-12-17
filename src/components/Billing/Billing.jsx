@@ -51,7 +51,7 @@ export const Billing = () => {
                 <Form.Control.Feedback type="invalid">Please provide a valid city.</Form.Control.Feedback>
               </Form.Group>
 
-              <FormGroupInner className="d-flex">
+              <FormGroupInner>
                 <Form.Group as={Col} md="6">
                   <CountrySelect value={country} onChange={setCountry} placeholder="Country" />
                 </Form.Group>
