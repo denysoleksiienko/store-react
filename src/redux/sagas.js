@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { requestProducts, requestProductsSuccess, requestProductsError } from './products/actions';
 import { PRODUCTS_URL } from 'constants/api';
+import { FETCHED_PRODUCTS } from './products/actionTypes';
 
 function* fetchProductsAsync() {
   try {
@@ -15,7 +16,7 @@ function* fetchProductsAsync() {
 }
 
 function* watchFetchProducts() {
-  yield takeEvery('FETCHED_PRODUCTS', fetchProductsAsync);
+  yield takeEvery(FETCHED_PRODUCTS, fetchProductsAsync);
 }
 
 export default watchFetchProducts;
