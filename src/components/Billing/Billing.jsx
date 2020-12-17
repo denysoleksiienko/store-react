@@ -3,13 +3,17 @@ import { useHistory } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import CountrySelect from 'react-bootstrap-country-select';
 
+import { useCountry } from 'hooks/useCountry';
 import { Orders, ButtonComponent, BreadcrumbItem } from 'components';
 import { PAYMENT } from 'constants/pathnames';
 import { RowWrap, Title, Label, InputsWrap, ColOrders, FormGroupInner } from 'styled';
 
 export const Billing = () => {
   const history = useHistory();
+  const { country, setCountry } = useCountry();
+
   const handleNext = () => {
     history.push(PAYMENT);
   };
@@ -49,13 +53,7 @@ export const Billing = () => {
 
               <FormGroupInner className="d-flex">
                 <Form.Group as={Col} md="6">
-                  <Form.Control as="select" custom>
-                    <option>Country</option>
-                    <option>USA</option>
-                    <option>UA</option>
-                    <option>EU</option>
-                    <option>CA</option>
-                  </Form.Control>
+                  <CountrySelect value={country} onChange={setCountry} placeholder="Country" />
                 </Form.Group>
 
                 <Form.Group as={Col} md="4">
