@@ -10,51 +10,28 @@ import {
   ProductInfo,
 } from 'styled';
 
-export const Orders = () => {
-  const [data, setData] = React.useState([
-    {
-      id: 1,
-      name: 'The Chelsea Boot',
-      color: 'Black',
-      qty: 1,
-      price: '$235',
-      img: 'https://via.placeholder.com/80',
-    },
-    {
-      id: 2,
-      name: 'The Twill Snap Backpack',
-      color: 'Reverse Denim + Brown leather',
-      qty: 1,
-      price: '$65',
-      img: 'https://via.placeholder.com/80',
-    },
-    {
-      id: 3,
-      name: 'The Twill Zip Tote',
-      color: 'Reverse Denim + Black leather',
-      qty: 1,
-      price: '$48',
-      img: 'https://via.placeholder.com/80',
-    },
-  ]);
+export const Orders = ({ orders, fetchProducts }) => {
+  React.useEffect(() => {
+    fetchProducts();
+  }, []);
 
   return (
     <>
       <SummaryTitle>Order Summary</SummaryTitle>
       <SummaryWrap>
         <SummaryList></SummaryList>
-        {data.map(({ id, img, name, color, qty, price }) => (
+        {orders.map(({ id, img, title, color, qty, price }) => (
           <SummaryItem key={id}>
             <SummaryItemInfo>
-              <img src={img} alt={name} />
+              <img src={img} alt={title} />
 
               <ProductInfo>
-                <span>{name}</span>
+                <span>{title}</span>
                 <span>{color}</span>
                 <span>{qty}</span>
               </ProductInfo>
 
-              <span>{price}</span>
+              <span>${price}</span>
             </SummaryItemInfo>
           </SummaryItem>
         ))}
