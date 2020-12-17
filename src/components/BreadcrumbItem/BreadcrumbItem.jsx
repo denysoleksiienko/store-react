@@ -1,14 +1,16 @@
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
-import { BreadcrumbWrap } from 'styled';
-
-// ToDo: Matching with routes
+import { BreadcrumbWrap, NavLinkStyled } from 'styled';
 
 export const BreadcrumbItem = () => (
   <BreadcrumbWrap>
-    <Breadcrumb.Item href="/" active>
+    <Breadcrumb.Item linkAs={NavLinkStyled} linkProps={{ to: '/', exact: true }}>
       Shipping
     </Breadcrumb.Item>
-    <Breadcrumb.Item href="/billing">Billing</Breadcrumb.Item>
-    <Breadcrumb.Item href="/payment">Payment</Breadcrumb.Item>
+    <Breadcrumb.Item linkAs={NavLinkStyled} linkProps={{ to: '/billing' }}>
+      Billing
+    </Breadcrumb.Item>
+    <Breadcrumb.Item linkAs={NavLinkStyled} linkProps={{ to: '/payment' }}>
+      Payment
+    </Breadcrumb.Item>
   </BreadcrumbWrap>
 );

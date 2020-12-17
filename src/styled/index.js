@@ -4,16 +4,27 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Button from 'react-bootstrap/Button';
+import { NavLink } from 'react-router-dom';
 
 const COLORS = {
   white: '#fff',
   orchid: '#9932cc',
   solitude: '#e9ecef',
+  gray: '#808080',
 };
 
 export const BreadcrumbWrap = styled(Breadcrumb)`
   ol.breadcrumb {
     background: ${COLORS.white};
+  }
+  color: ${COLORS.orchid};
+`;
+
+export const NavLinkStyled = styled(NavLink)`
+  font-weight: bold;
+  color: ${COLORS.gray};
+  &.active {
+    color: ${COLORS.orchid};
   }
 `;
 
