@@ -6,9 +6,7 @@ import { FETCHED_PRODUCTS } from './products/actionTypes';
 function* fetchProductsAsync() {
   try {
     yield put(requestProducts());
-    const data = yield call(() => {
-      return fetch(PRODUCTS_URL).then((response) => response.json());
-    });
+    const data = yield call(() => fetch(PRODUCTS_URL).then((response) => response.json()));
     yield put(requestProductsSuccess(data));
   } catch (error) {
     yield put(requestProductsError());

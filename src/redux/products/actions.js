@@ -5,18 +5,10 @@ import {
   FETCHED_PRODUCTS,
 } from './actionTypes';
 
-export const requestProducts = () => {
-  return { type: REQUESTED_PRODUCTS };
-};
+export const requestProducts = () => ({ type: REQUESTED_PRODUCTS });
 
-export const requestProductsSuccess = (data) => {
-  return { type: REQUESTED_PRODUCTS_SUCCEEDED, products: data };
-};
+export const requestProductsSuccess = (data) => ({ type: REQUESTED_PRODUCTS_SUCCEEDED, products: data });
 
-export const requestProductsError = () => {
-  return { type: REQUESTED_PRODUCTS_FAILED };
-};
+export const requestProductsError = () => ({ type: REQUESTED_PRODUCTS_FAILED });
 
-export const fetchProducts = () => {
-  return { type: FETCHED_PRODUCTS };
-};
+export const fetchProducts = () => ({ type: FETCHED_PRODUCTS });
