@@ -5,11 +5,15 @@ import Col from 'react-bootstrap/Col';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Button from 'react-bootstrap/Button';
 
-import { DEVICES } from 'constants/devices';
+const COLORS = {
+  white: '#fff',
+  orchid: '#9932cc',
+  solitude: 'e9ecef',
+};
 
 export const BreadcrumbWrap = styled(Breadcrumb)`
   ol.breadcrumb {
-    background: #fff;
+    background: ${COLORS.white};
   }
 `;
 
@@ -17,27 +21,19 @@ export const RowWrap = styled(Row)`
   height: 70vh;
 `;
 
-/*
-export const ColDelivery = styled(Col)`
-  @media ${DEVICES.large} {
-    max-width: 992px;
-  }
-`;
-*/
-
 export const ColOrders = styled(Col)`
-  background: #e9ecef;
+  background: ${COLORS.solitude};
 `;
 
 export const Title = styled.h1`
   font-size: 2em;
   margin-left: 16px;
-  color: #9932cc;
+  color: ${COLORS.orchid};
 `;
 
 export const Label = styled.label`
   font-size: 1.2em;
-  color: #9932cc;
+  color: ${COLORS.orchid};
 `;
 
 export const InputsWrap = styled.div`
@@ -45,7 +41,7 @@ export const InputsWrap = styled.div`
 `;
 
 export const StyledButton = styled(Button)`
-  background-color: #9932cc;
+  background-color: ${COLORS.orchid};
   width: 100%;
 `;
 
@@ -56,7 +52,7 @@ export const OrderWrap = styled.div`
 
 export const SummaryTitle = styled.h5`
   font-size: 1.2em;
-  color: #9932cc;
+  color: ${COLORS.orchid};
   margin: 12px;
 `;
 
