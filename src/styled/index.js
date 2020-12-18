@@ -59,6 +59,9 @@ export const StyledButton = styled(Button)`
 export const OrderWrap = styled.div`
   margin-top: 50px;
   margin-left: 16px;
+  & span {
+    font-weight: bold;
+  }
 `;
 
 export const SummaryTitle = styled.h5`
