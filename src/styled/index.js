@@ -9,10 +9,10 @@ export {
   SummaryWrap,
   SummaryList,
   SummaryItem,
-  SummaryItemInfo,
   ProductInfo,
   SummaryCost,
   SummaryTotal,
+  SummaryCostInner,
 } from './Orders';
 
 export { Title } from './shared/Title';
