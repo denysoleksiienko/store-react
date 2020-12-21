@@ -1,6 +1,6 @@
 import { StyledButton } from 'styled';
 
-export const ButtonComponent = ({ title, onClick }) => (
+export const Button = ({ title, onClick }) => (
   <StyledButton variant="primary" size="lg" onClick={onClick}>
     {title}
   </StyledButton>

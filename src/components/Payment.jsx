@@ -1,21 +1,21 @@
 import { useHistory } from 'react-router-dom';
-
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-import { BreadcrumbItem, ButtonComponent } from 'components';
+import { Breadcrumbs, Button } from 'components';
 import { ORDER } from 'constants/pathnames';
 import { Title, Label, SecureInfo, InputsWrap, Icon, Span, FormGroupInner } from 'styled';
 
 export const Payment = () => {
   const history = useHistory();
+
   const handleNext = () => {
     history.push(ORDER);
   };
 
   return (
     <Col lg={7}>
-      <BreadcrumbItem />
+      <Breadcrumbs />
       <Title>Payment</Title>
 
       <SecureInfo>
@@ -53,7 +53,7 @@ export const Payment = () => {
         </InputsWrap>
 
         <Form.Group as={Col} md="6">
-          <ButtonComponent title="Pay Securely" onClick={handleNext} />
+          <Button title="Pay Securely" onClick={handleNext} />
         </Form.Group>
       </Form>
     </Col>

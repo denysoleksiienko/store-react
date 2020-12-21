@@ -1,21 +1,25 @@
 import { connect } from 'react-redux';
-import { fetchProducts } from 'redux/products/actions';
-import { setName, setPhone, setEmail, setAddress, setOptional, setCity, setCountry, setZip } from 'redux/user/actions';
-import { userState } from 'redux/user/selectors';
+import { fetchProducts } from 'redux/ducks/products';
+import { setName, setPhone, setEmail, setAddress, setOptional, setCity, setCountry, setZip } from 'redux/ducks/user';
+import { userState } from 'redux/selectors';
 
-import { Orders as OrdersComponent } from './Orders/Orders';
-import { Shipping as ShippingComponent } from './Shipping/Shipping';
-import { Billing as BillingComponent } from './Billing/Billing';
-import { FinishOrders as FinishOrdersComponent } from './FinishOrders/FinishOrders';
+import { AddressFields as AddressFieldsComponent } from './AddressFields';
+import { ContactFields as ContactFieldsComponent } from './ContactFields';
+import { Orders as OrdersComponent } from './Orders';
+import { FinishOrders as FinishOrdersComponent } from './FinishOrders';
 
-export { Payment } from './Payment/Payment';
-export { BreadcrumbItem } from './BreadcrumbItem/BreadcrumbItem';
-export { ButtonComponent } from './ButtonComponent/ButtonComponent';
+export { Breadcrumbs } from './Breadcrumbs';
+export { Button } from './Button';
+
+export { Shipping } from './Shipping';
+export { Billing } from './Billing';
+export { Payment } from './Payment';
 
 const mapStateToProps = (state) => ({
   orders: state.orders.products,
   user: userState(state),
 });
+
 const mapDispatchToProps = {
   fetchProducts,
   setName,
@@ -29,6 +33,6 @@ const mapDispatchToProps = {
 };
 
 export const Orders = connect(mapStateToProps, mapDispatchToProps)(OrdersComponent);
-export const Shipping = connect(mapStateToProps, mapDispatchToProps)(ShippingComponent);
-export const Billing = connect(mapStateToProps, mapDispatchToProps)(BillingComponent);
+export const AddressFields = connect(mapStateToProps, mapDispatchToProps)(AddressFieldsComponent);
+export const ContactFields = connect(mapStateToProps, mapDispatchToProps)(ContactFieldsComponent);
 export const FinishOrders = connect(mapStateToProps, mapDispatchToProps)(FinishOrdersComponent);

@@ -13,31 +13,31 @@ import {
 export const Orders = ({ orders, fetchProducts }) => {
   React.useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
   return (
     <>
       <SummaryTitle>Order Summary</SummaryTitle>
       <SummaryWrap>
-        <SummaryList></SummaryList>
-        {orders.map(({ id, img, title, color, qty, price }) => (
-          <SummaryItem key={id}>
-            <SummaryItemInfo>
-              <img src={img} alt={title} />
+        <SummaryList>
+          {orders.map(({ id, img, title, color, qty, price }) => (
+            <SummaryItem key={id}>
+              <SummaryItemInfo>
+                <img src={img} alt={title} />
 
-              <ProductInfo>
-                <span>{title}</span>
-                <span>{color}</span>
-                <span>{qty}</span>
-              </ProductInfo>
+                <ProductInfo>
+                  <span>{title}</span>
+                  <span>{color}</span>
+                  <span>{qty}</span>
+                </ProductInfo>
 
-              <span>${price}</span>
-            </SummaryItemInfo>
-          </SummaryItem>
-        ))}
+                <span>${price}</span>
+              </SummaryItemInfo>
+            </SummaryItem>
+          ))}
+        </SummaryList>
 
         <SummaryCost>
-          {/* ToDo: Think over the structure */}
           <p>Subtotal</p>
           <p>Shipping</p>
           <p>Taxes</p>
