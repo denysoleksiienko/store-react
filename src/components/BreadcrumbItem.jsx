@@ -1,5 +1,5 @@
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
-import { BreadcrumbWrap, NavLinkStyled } from 'styled';
+import { BreadcrumbWrap, NavLinkStyled } from 'styled/BreadcrumbItem';
 
 export const BreadcrumbItem = () => (
   <BreadcrumbWrap>
