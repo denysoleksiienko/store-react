@@ -1,11 +1,11 @@
-export const SET_NAME = 'SET_NAME';
-export const SET_PHONE = 'SET_PHONE';
-export const SET_EMAIL = 'ESET_EMAILMAIL';
-export const SET_ADDRESS = 'SET_ADDRESS';
-export const SET_OPTIONAL = 'SET_OPTIONAL';
-export const SET_CITY = 'SET_CITY';
-export const SET_COUNTRY = 'SET_COUNTRY';
-export const SET_ZIP = 'SET_ZIP';
+const SET_NAME = 'SET_NAME';
+const SET_PHONE = 'SET_PHONE';
+const SET_EMAIL = 'ESET_EMAILMAIL';
+const SET_ADDRESS = 'SET_ADDRESS';
+const SET_OPTIONAL = 'SET_OPTIONAL';
+const SET_CITY = 'SET_CITY';
+const SET_COUNTRY = 'SET_COUNTRY';
+const SET_ZIP = 'SET_ZIP';
 
 export const setName = (value) => ({ type: SET_NAME, payload: value });
 export const setPhone = (value) => ({ type: SET_PHONE, payload: value });
@@ -69,7 +69,6 @@ export const reducer = (state = initialState, action) => {
         ...state,
         zip: action.payload,
       };
-
     default:
       return state;
   }

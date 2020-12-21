@@ -1,10 +1,10 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { PRODUCTS_URL } from 'constants/api';
 
-export const REQUESTED_PRODUCTS = 'REQUESTED_PRODUCTS';
-export const REQUESTED_PRODUCTS_SUCCEEDED = 'REQUESTED_PRODUCTS_SUCCEEDED';
-export const REQUESTED_PRODUCTS_FAILED = 'REQUESTED_PRODUCTS_FAILED';
-export const FETCHED_PRODUCTS = 'FETCHED_PRODUCTS';
+const REQUESTED_PRODUCTS = 'REQUESTED_PRODUCTS';
+const REQUESTED_PRODUCTS_SUCCEEDED = 'REQUESTED_PRODUCTS_SUCCEEDED';
+const REQUESTED_PRODUCTS_FAILED = 'REQUESTED_PRODUCTS_FAILED';
+const FETCHED_PRODUCTS = 'FETCHED_PRODUCTS';
 
 const initialState = {
   products: [],
@@ -36,12 +36,12 @@ export const reducer = (state = initialState, action) => {
   }
 };
 
-export const requestProducts = () => ({ type: REQUESTED_PRODUCTS });
-export const requestProductsSuccess = (data) => ({ type: REQUESTED_PRODUCTS_SUCCEEDED, products: data });
-export const requestProductsError = (error) => ({ type: REQUESTED_PRODUCTS_FAILED, error });
+const requestProducts = () => ({ type: REQUESTED_PRODUCTS });
+const requestProductsSuccess = (data) => ({ type: REQUESTED_PRODUCTS_SUCCEEDED, products: data });
+const requestProductsError = (error) => ({ type: REQUESTED_PRODUCTS_FAILED, error });
 export const fetchProducts = () => ({ type: FETCHED_PRODUCTS });
 
-export function* fetchProductsAsync() {
+function* fetchProductsAsync() {
   try {
     yield put(requestProducts());
     const data = yield call(() => fetch(PRODUCTS_URL).then((response) => response.json()));
@@ -50,3 +50,9 @@ export function* fetchProductsAsync() {
     yield put(requestProductsError(error));
   }
 }
+
+function* watchFetchProducts() {
+  yield takeEvery(FETCHED_PRODUCTS, fetchProductsAsync);
+}
+
+export default watchFetchProducts;
