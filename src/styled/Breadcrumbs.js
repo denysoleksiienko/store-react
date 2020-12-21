@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
-import { COLORS } from './colors';
+import { COLORS } from '../constants/colors';
 
 export const BreadcrumbWrap = styled(Breadcrumb)`
   ol.breadcrumb {
