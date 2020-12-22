@@ -15,31 +15,37 @@ export const Orders = ({ orders, fetchProducts }) => {
     fetchProducts();
   }, [fetchProducts]);
 
+  let Subtotal = 0;
+
   return (
     <>
       <SummaryTitle>Order Summary</SummaryTitle>
 
       <SummaryWrap>
         <SummaryList>
-          {orders.map(({ id, img, title, color, qty, price }) => (
-            <SummaryItem key={id}>
-              <img src={img} alt={title} />
+          {orders.map(({ id, img, title, color, qty, price }) => {
+            Subtotal += price;
 
-              <ProductInfo>
-                <span>{title}</span>
-                <span>{color}</span>
-                <span>Quantity: {qty}</span>
-              </ProductInfo>
+            return (
+              <SummaryItem key={id}>
+                <img src={img} alt={title} />
 
-              <span>${price}</span>
-            </SummaryItem>
-          ))}
+                <ProductInfo>
+                  <span>{title}</span>
+                  <span>{color}</span>
+                  <span>Quantity: {qty}</span>
+                </ProductInfo>
+
+                <span>${price}</span>
+              </SummaryItem>
+            );
+          })}
         </SummaryList>
 
         <SummaryCost>
           <SummaryCostInner>
             <span>Subtotal</span>
-            <span>$300</span>
+            <span>${Subtotal}</span>
           </SummaryCostInner>
           <SummaryCostInner>
             <span>Shipping</span>
@@ -47,13 +53,13 @@ export const Orders = ({ orders, fetchProducts }) => {
           </SummaryCostInner>
           <SummaryCostInner>
             <span>Taxes</span>
-            <span>$12</span>
+            <span>$10</span>
           </SummaryCostInner>
           <hr />
 
           <SummaryCostInner>
             <SummaryTotal>Total</SummaryTotal>
-            <SummaryTotal>$12</SummaryTotal>
+            <SummaryTotal>${Subtotal + 10}</SummaryTotal>
           </SummaryCostInner>
         </SummaryCost>
       </SummaryWrap>

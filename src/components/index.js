@@ -4,16 +4,17 @@ import { setName, setPhone, setEmail, setAddress, setOptional, setCity, setCount
 import { userState } from 'redux/selectors';
 
 import { AddressFields as AddressFieldsComponent } from './AddressFields';
-import { ContactFields as ContactFieldsComponent } from './ContactFields';
+// import { ContactFields as ContactFieldsComponent } from './ContactFields';
 import { Orders as OrdersComponent } from './Orders';
 import { FinishOrders as FinishOrdersComponent } from './FinishOrders';
 
+import { Shipping as ShippingComponent } from './Shipping';
+import { Billing as BillingComponent } from './Billing';
+
 export { Breadcrumbs } from './Breadcrumbs';
 export { Button } from './Button';
-
-export { Shipping } from './Shipping';
-export { Billing } from './Billing';
 export { Payment } from './Payment';
+export { ContactFields } from './ContactFields';
 
 const mapStateToProps = (state) => ({
   orders: state.orders.products,
@@ -33,6 +34,8 @@ const mapDispatchToProps = {
 };
 
 export const Orders = connect(mapStateToProps, mapDispatchToProps)(OrdersComponent);
+export const Shipping = connect(mapStateToProps, mapDispatchToProps)(ShippingComponent);
+export const Billing = connect(mapStateToProps, mapDispatchToProps)(BillingComponent);
 export const AddressFields = connect(mapStateToProps, mapDispatchToProps)(AddressFieldsComponent);
-export const ContactFields = connect(mapStateToProps, mapDispatchToProps)(ContactFieldsComponent);
+// export const ContactFields = connect(mapStateToProps, mapDispatchToProps)(ContactFieldsComponent);
 export const FinishOrders = connect(mapStateToProps, mapDispatchToProps)(FinishOrdersComponent);
