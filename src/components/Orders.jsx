@@ -5,9 +5,9 @@ import {
   SummaryList,
   SummaryCost,
   SummaryItem,
-  SummaryItemInfo,
   SummaryTotal,
   ProductInfo,
+  SummaryCostInner,
 } from 'styled';
 
 export const Orders = ({ orders, fetchProducts }) => {
@@ -18,31 +18,43 @@ export const Orders = ({ orders, fetchProducts }) => {
   return (
     <>
       <SummaryTitle>Order Summary</SummaryTitle>
+
       <SummaryWrap>
         <SummaryList>
           {orders.map(({ id, img, title, color, qty, price }) => (
             <SummaryItem key={id}>
-              <SummaryItemInfo>
-                <img src={img} alt={title} />
+              <img src={img} alt={title} />
 
-                <ProductInfo>
-                  <span>{title}</span>
-                  <span>{color}</span>
-                  <span>{qty}</span>
-                </ProductInfo>
+              <ProductInfo>
+                <span>{title}</span>
+                <span>{color}</span>
+                <span>Quantity: {qty}</span>
+              </ProductInfo>
 
-                <span>${price}</span>
-              </SummaryItemInfo>
+              <span>${price}</span>
             </SummaryItem>
           ))}
         </SummaryList>
 
         <SummaryCost>
-          <p>Subtotal</p>
-          <p>Shipping</p>
-          <p>Taxes</p>
+          <SummaryCostInner>
+            <span>Subtotal</span>
+            <span>$300</span>
+          </SummaryCostInner>
+          <SummaryCostInner>
+            <span>Shipping</span>
+            <span>Free</span>
+          </SummaryCostInner>
+          <SummaryCostInner>
+            <span>Taxes</span>
+            <span>$12</span>
+          </SummaryCostInner>
           <hr />
-          <SummaryTotal>Total</SummaryTotal>
+
+          <SummaryCostInner>
+            <SummaryTotal>Total</SummaryTotal>
+            <SummaryTotal>$12</SummaryTotal>
+          </SummaryCostInner>
         </SummaryCost>
       </SummaryWrap>
     </>
