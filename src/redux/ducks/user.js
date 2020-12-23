@@ -23,7 +23,7 @@ const initialState = {
   address: '',
   optional: '',
   city: '',
-  country: null,
+  country: [],
   zip: '',
 };
 
