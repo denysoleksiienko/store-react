@@ -21,8 +21,7 @@ export const Payment = () => {
       code: '',
     },
     validationSchema: VALIDATION_PAYMENT,
-    onSubmit: (e) => {
-      console.log(e);
+    onSubmit: () => {
       setTimeout(() => history.push(ORDER), 300);
     },
   });
@@ -59,7 +58,7 @@ export const Payment = () => {
             <Label>Card Number</Label>
             <Form.Control
               name="credit"
-              type="number"
+              type="text"
               placeholder="XXXX XXXX XXXX XXXX XXXX"
               value={formik.values.credit}
               onChange={formik.handleChange}

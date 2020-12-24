@@ -142,7 +142,7 @@ export const Billing = (props) => {
                 props.setZip(e.target.value);
                 formik.handleChange(e);
               }}
-              // onBlur={formik.handleBlur}
+              onBlur={formik.handleBlur}
               isValid={formik.touched.zip && !formik.errors.zip}
               isInvalid={formik.touched.zip && formik.errors.zip}
             />
