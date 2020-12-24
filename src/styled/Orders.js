@@ -26,6 +26,12 @@ export const SummaryItem = styled.div`
   padding-bottom: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  @media print {
+    color: #000;
+    img {
+      filter: grayscale(100%);
+    }
+  }
 `;
 
 export const ProductInfo = styled.div`
