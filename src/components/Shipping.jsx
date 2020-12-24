@@ -4,7 +4,6 @@ import { useFormik } from 'formik';
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-// import CountrySelect from 'react-bootstrap-country-select';
 
 import { Typeahead } from 'react-bootstrap-typeahead';
 import { COUNTRIES } from 'constants/countries';
