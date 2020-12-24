@@ -4,9 +4,9 @@ import { useFormik } from 'formik';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-import { Breadcrumbs, Button } from 'components';
+import { Breadcrumbs, Button, CreditCard } from 'components';
 import { ORDER } from 'constants/pathnames';
-import { Title, Label, SecureInfo, InputsWrap, Icon, Span, FormGroupInner } from 'styled';
+import { Title, Label, SecureInfo, InputsWrap, Icon, Span } from 'styled';
 
 import { VALIDATION_PAYMENT } from 'constants/validationSchema';
 
@@ -16,9 +16,9 @@ export const Payment = () => {
   const formik = useFormik({
     initialValues: {
       name: '',
-      credit: '',
-      date: '',
-      code: '',
+      cardNumber: '',
+      expiryDate: '',
+      cvc: '',
     },
     validationSchema: VALIDATION_PAYMENT,
     onSubmit: () => {
@@ -53,53 +53,7 @@ export const Payment = () => {
           </Form.Group>
         </InputsWrap>
 
-        <InputsWrap>
-          <Form.Group as={Col} md="10">
-            <Label>Card Number</Label>
-            <Form.Control
-              name="credit"
-              type="text"
-              placeholder="XXXX XXXX XXXX XXXX XXXX"
-              value={formik.values.credit}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              isValid={formik.touched.credit && !formik.errors.credit}
-              isInvalid={formik.touched.credit && formik.errors.credit}
-            />
-            <Form.Control.Feedback type="invalid">{formik.errors.credit}</Form.Control.Feedback>
-          </Form.Group>
-
-          <FormGroupInner>
-            <Form.Group as={Col} md="4">
-              <Label>Expire Date</Label>
-              <Form.Control
-                name="date"
-                type="text"
-                placeholder="MM / YY"
-                value={formik.values.date}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                isValid={formik.touched.date && !formik.errors.date}
-                isInvalid={formik.touched.date && formik.errors.date}
-              />
-              <Form.Control.Feedback type="invalid">{formik.errors.date}</Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group as={Col} md="4">
-              <Label>Security Code</Label>
-              <Form.Control
-                name="code"
-                type="password"
-                value={formik.values.code}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                isValid={formik.touched.code && !formik.errors.code}
-                isInvalid={formik.touched.code && formik.errors.code}
-              />
-              <Form.Control.Feedback type="invalid">{formik.errors.code}</Form.Control.Feedback>
-            </Form.Group>
-          </FormGroupInner>
-        </InputsWrap>
+        <CreditCard formik={formik} />
 
         <Form.Group as={Col} md="6">
           <Button title="Pay Securely" />

@@ -51,19 +51,19 @@ export const VALIDATION_PAYMENT = Yup.object().shape({
     .matches(/^[A-Za-z ]*$/, '*Please, enter valid name')
     .max(40)
     .required('*Please, enter your full name as it appears on your card'),
-  credit: Yup.string()
-    .matches(/^[0-9]+$/, '*Please, enter a valid credit card number')
-    .min(16, 'Must be 16 digits')
-    .max(16, 'Must be 16 digits')
-    .required('*Please, enter credit card number'),
-  date: Yup.string()
-    .matches(/^\d{4}$/, '*Please enter valid date')
-    .min(4, 'Must be 4 digits')
-    .max(4, 'Must be 4 digits')
-    .required('*Please enter expire date'),
-  code: Yup.string()
-    .matches(/^\d{3}$/, '*Please enter valid cvv code')
-    .min(3)
+  cardNumber: Yup.string()
+    .matches(/^[0-9 ]+$/, '*Please, enter valid number')
+    .min(19, '*Credit number must be 16 digits')
+    .max(19)
+    .required('*Please, enter credit number'),
+  expiryDate: Yup.string()
+    .matches(/^[0-9 ]+\//gi, '*Please, enter valid date')
+    .min(7, '*Date must be 4 digits')
+    .max(7)
+    .required('*Please, enter expiry date'),
+  cvc: Yup.string()
+    .matches(/^[0-9]+$/, '*Please, enter valid cvc')
+    .min(3, '*Cvc code must be 3 digits')
     .max(3)
-    .required('*Please, enter cvv code'),
+    .required('*Please, enter cvc code'),
 });

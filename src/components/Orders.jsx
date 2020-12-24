@@ -1,7 +1,7 @@
 import React from 'react';
 import { OrderItem, OrderCost } from 'components';
 
-import { SummaryTitle, SummaryWrap, SummaryList, SummaryCost, SummaryTotal, SummaryCostInner } from 'styled';
+import { SummaryTitle, SummaryWrap, SummaryList } from 'styled';
 
 export const Orders = ({ orders, fetchProducts }) => {
   React.useEffect(() => {

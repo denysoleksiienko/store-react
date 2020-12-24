@@ -14,6 +14,7 @@ export { Button } from './Button';
 export { Payment } from './Payment';
 export { OrderItem } from './OrderItem';
 export { OrderCost } from './OrderCost';
+export { CreditCard } from './CreditCard';
 
 const mapStateToProps = (state) => ({
   orders: state.orders.products,
