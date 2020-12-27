@@ -1,6 +1,16 @@
 import { connect } from 'react-redux';
 import { fetchProducts } from 'redux/ducks/products';
-import { setName, setPhone, setEmail, setAddress, setOptional, setCity, setCountry, setZip } from 'redux/ducks/user';
+import {
+  setName,
+  setPhone,
+  setEmail,
+  setAddress,
+  setOptional,
+  setCity,
+  setCountry,
+  setZip,
+  fetchCity,
+} from 'redux/ducks/user';
 import { userState } from 'redux/selectors';
 
 import { Orders as OrdersComponent } from './Orders';
@@ -31,6 +41,7 @@ const mapDispatchToProps = {
   setCity,
   setCountry,
   setZip,
+  fetchCity,
 };
 
 export const Orders = connect(mapStateToProps, mapDispatchToProps)(OrdersComponent);

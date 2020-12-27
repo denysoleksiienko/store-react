@@ -1,6 +1,6 @@
 export { RowWrap, ColOrders } from './App';
 export { BreadcrumbWrap, NavLinkStyled } from './Breadcrumbs';
-export { InputSpan } from './Shipping';
+export { InputSpan, LocationIcon } from './Shipping';
 export { StyledButton } from './Button';
 export { SecureInfo, Icon, Span } from './Payment';
 export { Wrap, Inner, Button, SpanEmail, SpanDelivery, OrderNumber } from './FinishOrders';

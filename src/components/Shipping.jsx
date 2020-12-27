@@ -1,16 +1,16 @@
-import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 import { Typeahead } from 'react-bootstrap-typeahead';
 import { COUNTRIES } from 'constants/countries';
 
 import { Button, Breadcrumbs } from 'components';
 import { BILLING } from 'constants/pathnames';
-import { Title, Label, FormGroupInner, InputSpan } from 'styled';
+import { Title, Label, FormGroupInner, InputSpan, LocationIcon } from 'styled';
 
 import { VALIDATION_SHIPPING } from 'constants/validationSchema';
 
@@ -105,20 +105,30 @@ export const Shipping = (props) => {
           <Form.Control.Feedback type="invalid">{formik.errors.optional}</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="10">
-          <Form.Control
-            name="city"
-            type="text"
-            placeholder="City"
-            value={formik.values.city}
-            onChange={(e) => {
-              props.setCity(e.target.value);
-              formik.handleChange(e);
-            }}
-            onBlur={formik.handleBlur}
-            isValid={formik.touched.city && !formik.errors.city}
-            isInvalid={formik.touched.city && formik.errors.city}
-          />
-          <Form.Control.Feedback type="invalid">{formik.errors.city}</Form.Control.Feedback>
+          <InputGroup>
+            <Form.Control
+              name="city"
+              type="text"
+              placeholder="City"
+              value={formik.values.city ? formik.values.city : (formik.values.city = props.user.city)}
+              onChange={(e) => {
+                props.setCity(e.target.value);
+                formik.handleChange(e);
+              }}
+              onBlur={formik.handleBlur}
+              isValid={formik.touched.city && !formik.errors.city}
+              isInvalid={formik.touched.city && formik.errors.city}
+            />
+            <InputGroup.Prepend>
+              <InputGroup.Text id="inputGroupPrepend">
+                <LocationIcon
+                  src="https://www.flaticon.com/svg/static/icons/svg/1016/1016056.svg"
+                  onClick={props.fetchCity}
+                />
+              </InputGroup.Text>
+            </InputGroup.Prepend>
+            <Form.Control.Feedback type="invalid">{formik.errors.city}</Form.Control.Feedback>
+          </InputGroup>
         </Form.Group>
         <FormGroupInner>
           <Form.Group as={Col} md="6">
