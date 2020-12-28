@@ -6,7 +6,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { rootReducer } from './rootReducer';
-import watchFetchProducts from './ducks/products';
+import rootSaga from './rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -19,4 +19,4 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 export const persistor = persistStore(store);
-sagaMiddleware.run(watchFetchProducts);
+sagaMiddleware.run(rootSaga);

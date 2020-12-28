@@ -8,7 +8,6 @@ import { store, persistor } from 'redux/index';
 import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-bootstrap-country-select/dist/react-bootstrap-country-select.css';
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,18 +1,30 @@
 import { useHistory } from 'react-router-dom';
+import { useFormik } from 'formik';
+
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-import { Breadcrumbs, Button } from 'components';
+import { Breadcrumbs, Button, CreditCard } from 'components';
 import { ORDER } from 'constants/pathnames';
-import { Title, Label, SecureInfo, InputsWrap, Icon, Span, FormGroupInner } from 'styled';
+import { Title, Label, SecureInfo, InputsWrap, Icon, Span } from 'styled';
+
+import { VALIDATION_PAYMENT } from 'constants/validationSchema';
 
 export const Payment = () => {
   const history = useHistory();
 
-  const handleNext = () => {
-    history.push(ORDER);
-  };
-
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      cardNumber: '',
+      expiryDate: '',
+      cvc: '',
+    },
+    validationSchema: VALIDATION_PAYMENT,
+    onSubmit: () => {
+      setTimeout(() => history.push(ORDER), 300);
+    },
+  });
   return (
     <Col lg={7}>
       <Breadcrumbs />
@@ -23,37 +35,28 @@ export const Payment = () => {
         <Span>This is a secure 128-bit SSL encrypted payment</Span>
       </SecureInfo>
 
-      <Form>
+      <Form noValidate onSubmit={formik.handleSubmit}>
         <InputsWrap>
           <Form.Group as={Col} md="10">
             <Label>Cardholder Name</Label>
-            <Form.Control type="text" placeholder="Name as it appears on your card" />
+            <Form.Control
+              name="name"
+              type="text"
+              placeholder="Name as it appears on your card"
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              isValid={formik.touched.name && !formik.errors.name}
+              isInvalid={formik.touched.name && formik.errors.name}
+            />
+            <Form.Control.Feedback type="invalid">{formik.errors.name}</Form.Control.Feedback>
           </Form.Group>
         </InputsWrap>
 
-        <InputsWrap>
-          <Form.Group as={Col} md="10">
-            <Label>Card Number</Label>
-            <Form.Control type="number" placeholder="XXXX XXXX XXXX XXXX XXXX" />
-          </Form.Group>
-
-          <FormGroupInner>
-            <Form.Group as={Col} md="4">
-              <Label>Expire Date</Label>
-              <Form.Control type="text" placeholder="MM / YY" required />
-              <Form.Control.Feedback type="invalid">Please provide a valid date.</Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group as={Col} md="4">
-              <Label>Security Code</Label>
-              <Form.Control type="password" required />
-              <Form.Control.Feedback type="invalid">Please provide a valid security code.</Form.Control.Feedback>
-            </Form.Group>
-          </FormGroupInner>
-        </InputsWrap>
+        <CreditCard formik={formik} />
 
         <Form.Group as={Col} md="6">
-          <Button title="Pay Securely" onClick={handleNext} />
+          <Button title="Pay Securely" />
         </Form.Group>
       </Form>
     </Col>
