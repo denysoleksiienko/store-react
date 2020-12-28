@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchProducts } from 'redux/ducks/products';
+import { fetchProducts } from 'store/ducks/products';
 import {
   setName,
   setPhone,
@@ -10,8 +10,8 @@ import {
   setCountry,
   setZip,
   fetchCity,
-} from 'redux/ducks/user';
-import { userState } from 'redux/selectors';
+} from 'store/ducks/user';
+import { userState } from 'store/selectors';
 
 import { Orders as OrdersComponent } from './Orders';
 import { FinishOrders as FinishOrdersComponent } from './FinishOrders';
