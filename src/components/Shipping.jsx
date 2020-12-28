@@ -1,3 +1,4 @@
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 
@@ -163,7 +164,7 @@ export const Shipping = (props) => {
         </FormGroupInner>
 
         <Form.Group as={Col} md="6">
-          <Button title="Continue" />
+          <Button title="Continue" type="submit" />
         </Form.Group>
       </Form>
     </Col>

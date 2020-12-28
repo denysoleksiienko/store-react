@@ -151,7 +151,7 @@ export const Billing = (props) => {
         </FormGroupInner>
 
         <Form.Group as={Col} md="6">
-          <Button title="Continue" />
+          <Button title="Continue" type="submit" />
         </Form.Group>
       </Form>
     </Col>

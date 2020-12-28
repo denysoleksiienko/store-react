@@ -56,7 +56,7 @@ export const Payment = () => {
         <CreditCard formik={formik} />
 
         <Form.Group as={Col} md="6">
-          <Button title="Pay Securely" />
+          <Button title="Pay Securely" type="submit" />
         </Form.Group>
       </Form>
     </Col>

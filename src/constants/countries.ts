@@ -1,4 +1,9 @@
-export const COUNTRIES = [
+interface ICountries {
+  label: string;
+  value: string;
+}
+
+export const COUNTRIES: ICountries[] = [
   { label: 'Afghanistan', value: 'AF' },
   { label: 'Åland Islands', value: 'AX' },
   { label: 'Albania', value: 'AL' },

@@ -1,6 +1,6 @@
 import { OPENCAGEDATA, KEY } from 'constants/api';
 
-export let getGeolocation = {};
+export let getGeolocation: any = {};
 
 navigator.geolocation.getCurrentPosition(async (position) => {
   const { latitude, longitude } = position.coords;

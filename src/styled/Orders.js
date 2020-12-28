@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from '../constants/colors';
+import { COLORS } from 'constants/colors';
 
 export const SummaryTitle = styled.h5`
   font-size: 1.2em;

@@ -1,7 +1,8 @@
+import React from 'react';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { BreadcrumbWrap, NavLinkStyled } from 'styled/Breadcrumbs';
 
-export const Breadcrumbs = () => (
+export const Breadcrumbs: React.FC = () => (
   <BreadcrumbWrap>
     <Breadcrumb.Item linkAs={NavLinkStyled} linkProps={{ to: '/', exact: true }}>
       Shipping

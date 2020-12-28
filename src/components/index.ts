@@ -26,7 +26,7 @@ export { OrderItem } from './OrderItem';
 export { OrderCost } from './OrderCost';
 export { CreditCard } from './CreditCard';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: any) => ({
   orders: state.orders.products,
   user: userState(state),
 });

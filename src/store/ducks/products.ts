@@ -1,17 +1,22 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { PRODUCTS_URL } from 'constants/api';
 
-const REQUESTED_PRODUCTS = 'REQUESTED_PRODUCTS';
-const REQUESTED_PRODUCTS_SUCCEEDED = 'REQUESTED_PRODUCTS_SUCCEEDED';
-const REQUESTED_PRODUCTS_FAILED = 'REQUESTED_PRODUCTS_FAILED';
-const FETCHED_PRODUCTS = 'FETCHED_PRODUCTS';
+const REQUESTED_PRODUCTS: string = 'REQUESTED_PRODUCTS';
+const REQUESTED_PRODUCTS_SUCCEEDED: string = 'REQUESTED_PRODUCTS_SUCCEEDED';
+const REQUESTED_PRODUCTS_FAILED: string = 'REQUESTED_PRODUCTS_FAILED';
+const FETCHED_PRODUCTS: string = 'FETCHED_PRODUCTS';
 
-const initialState = {
+interface ProductState {
+  products: [];
+  error: boolean;
+}
+
+const initialState: ProductState = {
   products: [],
   error: false,
 };
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action: any): ProductState => {
   switch (action.type) {
     case REQUESTED_PRODUCTS:
       return {
@@ -37,8 +42,8 @@ export const reducer = (state = initialState, action) => {
 };
 
 const requestProducts = () => ({ type: REQUESTED_PRODUCTS });
-const requestProductsSuccess = (data) => ({ type: REQUESTED_PRODUCTS_SUCCEEDED, products: data });
-const requestProductsError = (error) => ({ type: REQUESTED_PRODUCTS_FAILED, error });
+const requestProductsSuccess = (data: Array<[]>) => ({ type: REQUESTED_PRODUCTS_SUCCEEDED, products: data });
+const requestProductsError = (error: boolean) => ({ type: REQUESTED_PRODUCTS_FAILED, error });
 export const fetchProducts = () => ({ type: FETCHED_PRODUCTS });
 
 function* fetchProductsAsync() {
