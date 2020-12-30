@@ -3,11 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { SHIPPING, BILLING, PAYMENT, ORDER } from 'constants/pathnames';
 import { Shipping, Billing, Payment, FinishOrders } from 'components';
 
-interface IRoutes {
-  path: string;
-  exact: boolean;
-  component: React.ComponentType<any>;
-}
+import { IRoutes } from 'interfaces/Routes';
 
 const routes: IRoutes[] = [
   { path: SHIPPING, component: Shipping, exact: true },

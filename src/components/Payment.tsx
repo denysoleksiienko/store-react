@@ -1,5 +1,6 @@
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useFormik } from 'formik';
+import { useFormik, FormikProps } from 'formik';
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -9,11 +10,12 @@ import { ORDER } from 'constants/pathnames';
 import { Title, Label, SecureInfo, InputsWrap, Icon, Span } from 'styled';
 
 import { VALIDATION_PAYMENT } from 'constants/validationSchema';
+import { IPaymentFormValues } from 'interfaces/FormValues';
 
-export const Payment = () => {
+export const Payment: React.FC = () => {
   const history = useHistory();
 
-  const formik = useFormik({
+  const formik: FormikProps<IPaymentFormValues> = useFormik({
     initialValues: {
       name: '',
       cardNumber: '',
@@ -25,6 +27,7 @@ export const Payment = () => {
       setTimeout(() => history.push(ORDER), 300);
     },
   });
+
   return (
     <Col lg={7}>
       <Breadcrumbs />
@@ -47,7 +50,7 @@ export const Payment = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               isValid={formik.touched.name && !formik.errors.name}
-              isInvalid={formik.touched.name && formik.errors.name}
+              isInvalid={!!formik.errors.name && formik.touched.name}
             />
             <Form.Control.Feedback type="invalid">{formik.errors.name}</Form.Control.Feedback>
           </Form.Group>

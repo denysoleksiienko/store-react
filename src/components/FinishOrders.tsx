@@ -1,7 +1,14 @@
+import React from 'react';
 import Col from 'react-bootstrap/Col';
 import { Title, Wrap, Inner, Button, SpanEmail, SpanDelivery, OrderNumber } from 'styled';
 
-export const FinishOrders = ({ user }) => (
+interface IFinishOrder {
+  readonly user: {
+    email: string;
+  };
+}
+
+export const FinishOrders: React.FC<IFinishOrder> = ({ user }) => (
   <Col lg={7}>
     <Wrap>
       <Title>Thank you for your order!</Title>

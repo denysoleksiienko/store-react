@@ -1,7 +1,4 @@
-interface ICountries {
-  label: string;
-  value: string;
-}
+import { ICountries } from 'interfaces/Countries';
 
 export const COUNTRIES: ICountries[] = [
   { label: 'Afghanistan', value: 'AF' },

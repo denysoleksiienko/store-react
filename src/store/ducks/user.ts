@@ -1,24 +1,26 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { getGeolocation } from 'helpers/getGeolocation';
 
-const SET_NAME: string = 'SET_NAME';
-const SET_PHONE: string = 'SET_PHONE';
-const SET_EMAIL: string = 'ESET_EMAILMAIL';
-const SET_ADDRESS: string = 'SET_ADDRESS';
-const SET_OPTIONAL: string = 'SET_OPTIONAL';
-const SET_CITY: string = 'SET_CITY';
-const SET_COUNTRY: string = 'SET_COUNTRY';
-const SET_ZIP: string = 'SET_ZIP';
+import { ICountries } from 'interfaces/Countries';
+
+export const SET_NAME: string = 'SET_NAME';
+export const SET_PHONE: string = 'SET_PHONE';
+export const SET_EMAIL: string = 'ESET_EMAILMAIL';
+export const SET_ADDRESS: string = 'SET_ADDRESS';
+export const SET_OPTIONAL: string = 'SET_OPTIONAL';
+export const SET_CITY: string = 'SET_CITY';
+export const SET_COUNTRY: string = 'SET_COUNTRY';
+export const SET_ZIP: string = 'SET_ZIP';
 const FETCHED_SET_CITY: string = 'FETCHED_SET_CITY';
 
-interface UserState {
+export interface UserState {
   name: string;
   phone: string;
   email: string;
   address: string;
   optional: string;
   city: string;
-  country: Array<[]>;
+  country: ICountries[];
   zip: string;
 }
 
@@ -86,7 +88,7 @@ export const setEmail = (value: string) => ({ type: SET_EMAIL, payload: value })
 export const setAddress = (value: string) => ({ type: SET_ADDRESS, payload: value });
 export const setOptional = (value: string) => ({ type: SET_OPTIONAL, payload: value });
 export const setCity = (value: string) => ({ type: SET_CITY, payload: value });
-export const setCountry = (value: Array<[]>) => ({ type: SET_COUNTRY, payload: value });
+export const setCountry = (value: ICountries[]) => ({ type: SET_COUNTRY, payload: value });
 export const setZip = (value: string) => ({ type: SET_ZIP, payload: value });
 export const fetchCity = () => ({ type: FETCHED_SET_CITY });
 

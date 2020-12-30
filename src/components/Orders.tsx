@@ -3,12 +3,15 @@ import { OrderItem, OrderCost } from 'components';
 
 import { SummaryTitle, SummaryWrap, SummaryList } from 'styled';
 
-export const Orders = ({ orders, fetchProducts }) => {
+import { IOrders } from 'interfaces/Orders';
+import { IProducts } from 'interfaces/Products';
+
+export const Orders: React.FC<IOrders> = ({ orders, fetchProducts }) => {
   React.useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
 
-  let subtotal = 0;
+  let subtotal: number = 0;
 
   return (
     <>
@@ -16,7 +19,7 @@ export const Orders = ({ orders, fetchProducts }) => {
 
       <SummaryWrap>
         <SummaryList>
-          {orders.map(({ id, img, title, color, qty, price }) => {
+          {orders.map(({ id, img, title, color, qty, price }: IProducts) => {
             subtotal += price;
             return <OrderItem key={id} img={img} title={title} color={color} qty={qty} price={price} />;
           })}

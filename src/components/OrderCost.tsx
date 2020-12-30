@@ -1,6 +1,11 @@
+import React from 'react';
 import { SummaryCost, SummaryTotal, SummaryCostInner } from 'styled';
 
-export const OrderCost = ({ subtotal }) => (
+interface IOrderCost {
+  subtotal: number;
+}
+
+export const OrderCost: React.FC<IOrderCost> = ({ subtotal }) => (
   <SummaryCost>
     <SummaryCostInner>
       <span>Subtotal</span>

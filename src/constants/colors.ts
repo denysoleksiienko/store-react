@@ -1,10 +1,4 @@
-interface IColors {
-  white: string;
-  orchid: string;
-  solitude: string;
-  gray: string;
-  indigo: string;
-}
+import { IColors } from 'interfaces/Colors';
 
 export const COLORS: IColors = {
   white: '#fff',

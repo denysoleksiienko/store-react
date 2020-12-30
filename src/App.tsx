@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 
@@ -6,7 +7,7 @@ import { Routes } from 'routes/Routes';
 
 import { RowWrap, ColOrders } from 'styled';
 
-export const App = () => (
+export const App: React.FC = () => (
   <Container>
     <RowWrap>
       <Router>
