@@ -19,3 +19,4 @@ export { Title } from './shared/Title';
 export { Label } from './shared/Label';
 export { InputsWrap } from './shared/InputsWrap';
 export { FormGroupInner } from './shared/FormGroupInner';
+export { Error } from './shared/Error';

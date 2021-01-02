@@ -5,17 +5,18 @@ import { useFormik, FormikProps } from 'formik';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-import { Typeahead } from 'react-bootstrap-typeahead';
-import { COUNTRIES } from 'constants/countries';
+import { Button, Breadcrumbs, CountrySelect } from 'components';
 
-import { Button, Breadcrumbs } from 'components';
+import { COUNTRIES } from 'constants/countries';
 import { PAYMENT } from 'constants/pathnames';
-import { Title, Label, FormGroupInner } from 'styled';
+
+import { Title, Label, FormGroupInner, Error } from 'styled';
 
 import { VALIDATION_BILLING } from 'constants/validationSchema';
 
 import { IUserFormValues } from 'interfaces/FormValues';
 import { IUserProps } from 'interfaces/UserProps';
+import { ICountries } from 'interfaces/Countries';
 
 export const Billing: React.FC<IUserProps> = ({
   user,
@@ -131,16 +132,18 @@ export const Billing: React.FC<IUserProps> = ({
         </Form.Group>
         <FormGroupInner>
           <Form.Group as={Col} md="6">
-            <Typeahead
-              id="basic-typeahead-single"
+            <CountrySelect
               placeholder="Country"
-              onChange={(e) => setCountry(e)}
+              onChange={(e: ICountries[]): void => {
+                setCountry(e);
+                formik.setFieldValue('country', e);
+              }}
               options={COUNTRIES}
-              selected={user.country}
+              selected={formik.values.country}
               isValid={formik.touched.country && !formik.errors.country}
-              // isInvalid={formik.touched.country && formik.errors.country}
+              isInvalid={!!formik.errors.country}
             />
-            <Form.Control.Feedback type="invalid">{formik.errors.country}</Form.Control.Feedback>
+            <Error>{formik.errors.country}</Error>
           </Form.Group>
 
           <Form.Group as={Col} md="4">

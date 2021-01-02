@@ -21,6 +21,7 @@ import { Billing as BillingComponent } from './Billing';
 
 export { Breadcrumbs } from './Breadcrumbs';
 export { Button } from './Button';
+export { CountrySelect } from './CountrySelect';
 export { Payment } from './Payment';
 export { OrderItem } from './OrderItem';
 export { OrderCost } from './OrderCost';

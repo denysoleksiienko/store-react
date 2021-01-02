@@ -56,7 +56,19 @@ export const Payment: React.FC = () => {
           </Form.Group>
         </InputsWrap>
 
-        <CreditCard formik={formik} />
+        <CreditCard
+          onBlur={formik.handleBlur}
+          onChange={formik.handleChange}
+          isValidNumber={formik.touched.cardNumber && !formik.errors.cardNumber}
+          isInvalidNumber={!!formik.errors.cardNumber && formik.touched.cardNumber}
+          isValidDate={formik.touched.expiryDate && !formik.errors.expiryDate}
+          isInvalidDate={!!formik.errors.expiryDate && formik.touched.expiryDate}
+          isValidCvc={formik.touched.cvc && !formik.errors.cvc}
+          isInvalidCvc={!!formik.errors.cvc && formik.touched.cvc}
+          errorNumber={formik.errors.cardNumber}
+          errorExpiryDate={formik.errors.expiryDate}
+          errorCvc={formik.errors.cvc}
+        />
 
         <Form.Group as={Col} md="6">
           <Button title="Pay Securely" type="submit" />

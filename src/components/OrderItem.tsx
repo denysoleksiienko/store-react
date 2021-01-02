@@ -1,13 +1,7 @@
 import React from 'react';
-import { ProductInfo, SummaryItem } from 'styled';
+import { IOrderItem } from 'interfaces/Orders';
 
-interface IOrderItem {
-  img: string;
-  title: string;
-  color: string;
-  qty: number;
-  price: number;
-}
+import { ProductInfo, SummaryItem } from 'styled';
 
 export const OrderItem: React.FC<IOrderItem> = (props) => (
   <SummaryItem>

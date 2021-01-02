@@ -8,9 +8,21 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 import { Label, FormGroupInner, InputsWrap } from 'styled';
 
-import { IPaymentInputs } from 'interfaces/PaymentInputs';
+import { IPaymentInputs, ICreditCard } from 'interfaces/PaymentInputs';
 
-export const CreditCard: React.FC<any> = ({ formik }) => {
+export const CreditCard: React.FC<ICreditCard> = ({
+  onBlur,
+  onChange,
+  isValidNumber,
+  isInvalidNumber,
+  isValidDate,
+  isInvalidDate,
+  isValidCvc,
+  isInvalidCvc,
+  errorNumber,
+  errorExpiryDate,
+  errorCvc,
+}) => {
   const { getCardNumberProps, getExpiryDateProps, getCVCProps, getCardImageProps }: IPaymentInputs = usePaymentInputs();
 
   return (
@@ -24,33 +36,33 @@ export const CreditCard: React.FC<any> = ({ formik }) => {
             </InputGroup.Text>
           </InputGroup.Prepend>
           <Form.Control
-            {...getCardNumberProps({ onBlur: formik.handleBlur, onChange: formik.handleChange })}
-            isValid={formik.touched.cardNumber && !formik.errors.cardNumber}
-            isInvalid={!!formik.errors.cardNumber && formik.touched.cardNumber}
+            {...getCardNumberProps({ onBlur: onBlur, onChange: onChange })}
+            isValid={isValidNumber}
+            isInvalid={isInvalidNumber}
             placeholder="XXXX XXXX XXXX XXX"
           />
-          <Form.Control.Feedback type="invalid">{formik.errors.cardNumber}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errorNumber}</Form.Control.Feedback>
         </InputGroup>
       </Form.Group>
       <FormGroupInner>
         <Form.Group as={Col} md="4">
           <Label>Expiry date</Label>
           <Form.Control
-            {...getExpiryDateProps({ onBlur: formik.handleBlur, onChange: formik.handleChange })}
-            isValid={formik.touched.expiryDate && !formik.errors.expiryDate}
-            isInvalid={!!formik.errors.expiryDate && formik.touched.expiryDate}
+            {...getExpiryDateProps({ onBlur: onBlur, onChange: onChange })}
+            isValid={isValidDate}
+            isInvalid={isInvalidDate}
           />
-          <Form.Control.Feedback type="invalid">{formik.errors.expiryDate}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errorExpiryDate}</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="4">
           <Label>Security Code</Label>
           <Form.Control
-            {...getCVCProps({ onBlur: formik.handleBlur, onChange: formik.handleChange })}
-            isValid={formik.touched.cvc && !formik.errors.cvc}
-            isInvalid={!!formik.errors.cvc && formik.touched.cvc}
+            {...getCVCProps({ onBlur: onBlur, onChange: onChange })}
+            isValid={isValidCvc}
+            isInvalid={isInvalidCvc}
             placeholder="123"
           />
-          <Form.Control.Feedback type="invalid">{formik.errors.cvc}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errorCvc}</Form.Control.Feedback>
         </Form.Group>
       </FormGroupInner>
     </InputsWrap>

@@ -6,17 +6,17 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-import { Typeahead } from 'react-bootstrap-typeahead';
-import { COUNTRIES } from 'constants/countries';
+import { Button, Breadcrumbs, CountrySelect } from 'components';
 
-import { Button, Breadcrumbs } from 'components';
 import { BILLING } from 'constants/pathnames';
-import { Title, Label, FormGroupInner, InputSpan, LocationIcon } from 'styled';
+import { COUNTRIES } from 'constants/countries';
+import { Title, Label, FormGroupInner, InputSpan, LocationIcon, Error } from 'styled';
 
 import { VALIDATION_SHIPPING } from 'constants/validationSchema';
 
 import { IUserFormValues } from 'interfaces/FormValues';
 import { IUserProps } from 'interfaces/UserProps';
+import { ICountries } from 'interfaces/Countries';
 
 export const Shipping: React.FC<IUserProps> = ({
   user,
@@ -63,9 +63,8 @@ export const Shipping: React.FC<IUserProps> = ({
           />
           <Form.Control.Feedback type="invalid">{formik.errors.name}</Form.Control.Feedback>
         </Form.Group>
-
-        <Form.Group as={Col} md="8">
-          <FormGroupInner>
+        <FormGroupInner>
+          <Form.Group as={Col} md="6">
             <Form.Control
               name="phone"
               type="text"
@@ -79,9 +78,13 @@ export const Shipping: React.FC<IUserProps> = ({
               isValid={formik.touched.phone && !formik.errors.phone}
               isInvalid={!!formik.errors.phone && formik.touched.phone}
             />
+
+            <Form.Control.Feedback type="invalid">{formik.errors.phone}</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="6">
             <InputSpan>For delivery questions only</InputSpan>
-          </FormGroupInner>
-        </Form.Group>
+          </Form.Group>
+        </FormGroupInner>
         <Form.Group as={Col} md="10">
           <Label>Address</Label>
 
@@ -144,16 +147,18 @@ export const Shipping: React.FC<IUserProps> = ({
         </Form.Group>
         <FormGroupInner>
           <Form.Group as={Col} md="6">
-            <Typeahead
-              id="basic-typeahead-single"
+            <CountrySelect
               placeholder="Country"
-              onChange={(e) => setCountry(e)}
+              onChange={(e: ICountries[]): void => {
+                setCountry(e);
+                formik.setFieldValue('country', e);
+              }}
               options={COUNTRIES}
-              selected={user.country}
+              selected={formik.values.country}
               isValid={formik.touched.country && !formik.errors.country}
               isInvalid={!!formik.errors.country}
             />
-            <Form.Control.Feedback type="invalid">{formik.errors.country}</Form.Control.Feedback>
+            <Error>{formik.errors.country}</Error>
           </Form.Group>
 
           <Form.Group as={Col} md="4">

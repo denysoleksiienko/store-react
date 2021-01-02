@@ -1,12 +1,9 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
-import { Title, Wrap, Inner, Button, SpanEmail, SpanDelivery, OrderNumber } from 'styled';
 
-interface IFinishOrder {
-  readonly user: {
-    email: string;
-  };
-}
+import { IFinishOrder } from 'interfaces/Orders';
+
+import { Title, Wrap, Inner, Button, SpanEmail, SpanDelivery, OrderNumber } from 'styled';
 
 export const FinishOrders: React.FC<IFinishOrder> = ({ user }) => (
   <Col lg={7}>

@@ -11,12 +11,18 @@ export const VALIDATION_SHIPPING = Yup.object().shape({
   address: Yup.string().required('*Please, enter shipping address'),
   optional: Yup.string().required('*Please, enter optional address'),
   city: Yup.string().required('*Please, enter city'),
-  country: Yup.array().of(
-    Yup.object().shape({
-      label: Yup.string().required('Required'),
-      value: Yup.string().required('Required'),
-    })
-  ),
+  country: Yup.array()
+    .of(
+      Yup.object().shape({
+        label: Yup.string().required('Required'),
+        value: Yup.string().required('Required'),
+      })
+    )
+    .test({
+      message: '*Please, select your country',
+      test: (arr: any) => arr.length !== 0,
+    }),
+
   zip: Yup.string()
     .matches(/^[0-9]+$/, 'Must be only digits')
     .min(5, 'Must be min 5 digits')
@@ -33,12 +39,17 @@ export const VALIDATION_BILLING = Yup.object().shape({
   address: Yup.string().required('*Please, enter shipping address'),
   optional: Yup.string().required('*Please, enter optional address'),
   city: Yup.string().required('*Please, enter city'),
-  country: Yup.array().of(
-    Yup.object().shape({
-      label: Yup.string().required('*Required'),
-      value: Yup.string().required('*Required'),
-    })
-  ),
+  country: Yup.array()
+    .of(
+      Yup.object().shape({
+        label: Yup.string().required('Required'),
+        value: Yup.string().required('Required'),
+      })
+    )
+    .test({
+      message: '*Please, select your country',
+      test: (arr: any) => arr.length !== 0,
+    }),
   zip: Yup.string()
     .matches(/^[0-9]+$/, 'Must be only digits')
     .min(5, 'Must be min 5 digits')
