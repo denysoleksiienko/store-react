@@ -1,8 +1,14 @@
+import { IProductState } from 'interfaces/Products';
 import { combineReducers } from 'redux';
 import { reducer as productsReducer } from './ducks/products';
-import { reducer as userReducer } from './ducks/user';
+import { reducer as userReducer, IUserState } from './ducks/user';
 
-export const rootReducer = combineReducers({
+interface IAppState {
+  orders?: IProductState;
+  user?: IUserState;
+}
+
+export const rootReducer = combineReducers<IAppState>({
   orders: productsReducer,
   user: userReducer,
 });

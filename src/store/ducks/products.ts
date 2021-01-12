@@ -47,7 +47,7 @@ export const fetchProducts = () => ({ type: FETCHED_PRODUCTS });
 function* fetchProductsAsync() {
   try {
     yield put(requestProducts());
-    const data = yield call(() => fetch(PRODUCTS_URL).then((response) => response.json()));
+    const data: IProducts[] = yield call(() => fetch(PRODUCTS_URL).then((response: Response) => response.json()));
     yield put(requestProductsSuccess(data));
   } catch (error) {
     yield put(requestProductsError(error));

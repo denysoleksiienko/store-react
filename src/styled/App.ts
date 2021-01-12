@@ -8,6 +8,6 @@ export const RowWrap = styled(Row)`
   height: 70vh;
 `;
 
-export const ColOrders = styled(Col)`
+export const ColWrap = styled(Col)`
   background: ${COLORS.solitude};
 `;

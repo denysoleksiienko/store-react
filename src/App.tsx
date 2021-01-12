@@ -5,17 +5,17 @@ import Container from 'react-bootstrap/Container';
 import { Orders } from 'components';
 import { Routes } from 'routes/Routes';
 
-import { RowWrap, ColOrders } from 'styled';
+import { RowWrap, ColWrap } from 'styled';
 
-export const App: React.FC = () => (
+export const App: React.FC<unknown> = () => (
   <Container>
     <RowWrap>
       <Router>
         <Routes />
       </Router>
-      <ColOrders lg={5}>
+      <ColWrap lg={5}>
         <Orders />
-      </ColOrders>
+      </ColWrap>
     </RowWrap>
   </Container>
 );

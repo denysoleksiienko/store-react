@@ -13,7 +13,7 @@ export const SET_COUNTRY: string = 'SET_COUNTRY';
 export const SET_ZIP: string = 'SET_ZIP';
 const FETCHED_SET_CITY: string = 'FETCHED_SET_CITY';
 
-export interface UserState {
+export interface IUserState {
   name: string;
   phone: string;
   email: string;
@@ -24,7 +24,7 @@ export interface UserState {
   zip: string;
 }
 
-const initialState: UserState = {
+const initialState: IUserState = {
   name: '',
   phone: '',
   email: '',
@@ -35,7 +35,7 @@ const initialState: UserState = {
   zip: '',
 };
 
-export const reducer = (state = initialState, action: any): UserState => {
+export const reducer = (state = initialState, action: any): IUserState => {
   switch (action.type) {
     case SET_NAME:
       return {
@@ -93,7 +93,7 @@ export const setZip = (value: string) => ({ type: SET_ZIP, payload: value });
 export const fetchCity = () => ({ type: FETCHED_SET_CITY });
 
 function* fetchCityAsync() {
-  const city = yield call(() => getGeolocation.results.map(({ components }: any) => components.city));
+  const city: [] = yield call(() => getGeolocation.results.map(({ components }: any) => components.city));
   yield put(setCity(city.join('')));
 }
 

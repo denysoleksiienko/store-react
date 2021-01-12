@@ -39,6 +39,37 @@ export const Shipping: React.FC<IUserProps> = ({
     },
   });
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    switch (e.target.name) {
+      case 'name':
+        setName(e.target.value);
+        break;
+      case 'phone':
+        setPhone(e.target.value);
+        break;
+      case 'address':
+        setAddress(e.target.value);
+        break;
+      case 'optional':
+        setOptional(e.target.value);
+        break;
+      case 'city':
+        setCity(e.target.value);
+        break;
+      case 'zip':
+        setZip(e.target.value);
+        break;
+      default:
+        e.target.value = '';
+    }
+    formik.handleChange(e);
+  };
+
+  const handleChangeCountry = (e: ICountries[]): void => {
+    setCountry(e);
+    formik.setFieldValue('country', e);
+  };
+
   return (
     <Col lg={7}>
       <Breadcrumbs />
@@ -53,10 +84,7 @@ export const Shipping: React.FC<IUserProps> = ({
             type="text"
             placeholder="Full Name"
             value={formik.values.name}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setName(e.target.value);
-              formik.handleChange(e);
-            }}
+            onChange={handleChange}
             onBlur={formik.handleBlur}
             isValid={formik.touched.name && !formik.errors.name}
             isInvalid={!!formik.errors.name && formik.touched.name}
@@ -70,10 +98,7 @@ export const Shipping: React.FC<IUserProps> = ({
               type="text"
               placeholder="Daytime Phone"
               value={formik.values.phone}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setPhone(e.target.value);
-                formik.handleChange(e);
-              }}
+              onChange={handleChange}
               onBlur={formik.handleBlur}
               isValid={formik.touched.phone && !formik.errors.phone}
               isInvalid={!!formik.errors.phone && formik.touched.phone}
@@ -93,10 +118,7 @@ export const Shipping: React.FC<IUserProps> = ({
             type="text"
             placeholder="Street Address"
             value={formik.values.address}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setAddress(e.target.value);
-              formik.handleChange(e);
-            }}
+            onChange={handleChange}
             onBlur={formik.handleBlur}
             isValid={formik.touched.address && !formik.errors.address}
             isInvalid={!!formik.errors.address && formik.touched.address}
@@ -109,10 +131,7 @@ export const Shipping: React.FC<IUserProps> = ({
             type="text"
             placeholder="Apt, Suite, Bldg, Gate Code. (optional)"
             value={formik.values.optional}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setOptional(e.target.value);
-              formik.handleChange(e);
-            }}
+            onChange={handleChange}
             onBlur={formik.handleBlur}
             isValid={formik.touched.optional && !formik.errors.optional}
             isInvalid={!!formik.errors.optional && formik.touched.optional}
@@ -126,10 +145,7 @@ export const Shipping: React.FC<IUserProps> = ({
               type="text"
               placeholder="City"
               value={formik.values.city ? formik.values.city : (formik.values.city = user.city)}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setCity(e.target.value);
-                formik.handleChange(e);
-              }}
+              onChange={handleChange}
               onBlur={formik.handleBlur}
               isValid={formik.touched.city && !formik.errors.city}
               isInvalid={!!formik.errors.city && formik.touched.city}
@@ -149,10 +165,7 @@ export const Shipping: React.FC<IUserProps> = ({
           <Form.Group as={Col} md="6">
             <CountrySelect
               placeholder="Country"
-              onChange={(e: ICountries[]): void => {
-                setCountry(e);
-                formik.setFieldValue('country', e);
-              }}
+              onChange={handleChangeCountry}
               options={COUNTRIES}
               selected={formik.values.country}
               isValid={formik.touched.country && !formik.errors.country}
@@ -167,10 +180,7 @@ export const Shipping: React.FC<IUserProps> = ({
               type="text"
               placeholder="Zip"
               value={formik.values.zip}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setZip(e.target.value);
-                formik.handleChange(e);
-              }}
+              onChange={handleChange}
               onBlur={formik.handleBlur}
               isValid={formik.touched.zip && !formik.errors.zip}
               isInvalid={!!formik.errors.zip && formik.touched.zip}

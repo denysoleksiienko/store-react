@@ -1,4 +1,4 @@
-export { RowWrap, ColOrders } from './App';
+export { RowWrap, ColWrap } from './App';
 export { BreadcrumbWrap, NavLinkStyled } from './Breadcrumbs';
 export { InputSpan, LocationIcon } from './Shipping';
 export { StyledButton } from './Button';
