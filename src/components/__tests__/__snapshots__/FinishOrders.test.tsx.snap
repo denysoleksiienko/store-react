@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FinishOrders component should match snapshot 1`] = `
+<div
+  className="col-lg-7"
+>
+  <div
+    className="sc-jrAGrp gvvVlL"
+  >
+    <h1
+      className="sc-dmlrTW eDBzFv"
+    >
+      Thank you for your order!
+    </h1>
+    <div
+      className="sc-kEjbxe gwSbRr"
+    >
+      <p
+        className="sc-iqHYGH lkcwNC"
+      >
+        Order number is: 
+        <b>
+          188787788
+        </b>
+      </p>
+      <p>
+        You will recieve an email confirmation shortly to 
+        <span
+          className="sc-crrsfI AcZYB"
+        >
+          google@gmail.com
+        </span>
+      </p>
+      <p>
+        Estimated delivery Day is 
+        <br />
+        <span
+          className="sc-dQppl cwhHZX"
+        >
+          Friday 1st April 2016
+        </span>
+      </p>
+      <button
+        className="sc-bqyKva lhnwhK"
+        onClick={[Function]}
+      >
+         Print Recipe 
+      </button>
+    </div>
+  </div>
+</div>
+`;
