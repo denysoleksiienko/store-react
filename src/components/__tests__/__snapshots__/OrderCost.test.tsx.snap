@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderCost component should match snapshot 1`] = `
+<div
+  className="sc-fFubgz igwYDr"
+>
+  <div
+    className="sc-hHftDr gKZifq"
+  >
+    <span>
+      Subtotal
+    </span>
+    <span>
+      $
+      10
+    </span>
+  </div>
+  <div
+    className="sc-hHftDr gKZifq"
+  >
+    <span>
+      Shipping
+    </span>
+    <span>
+      Free
+    </span>
+  </div>
+  <div
+    className="sc-hHftDr gKZifq"
+  >
+    <span>
+      Taxes
+    </span>
+    <span>
+      $10
+    </span>
+  </div>
+  <hr />
+  <div
+    className="sc-hHftDr gKZifq"
+  >
+    <span
+      className="sc-dIUggk jiCKLJ"
+    >
+      Total
+    </span>
+    <span
+      className="sc-dIUggk jiCKLJ"
+    >
+      $
+      20
+    </span>
+  </div>
+</div>
+`;
