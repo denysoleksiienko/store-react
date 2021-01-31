@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumbs component should match snapshot 1`] = `
+<nav
+  aria-label="breadcrumb"
+  className="sc-bdfBwQ jXuzUi"
+>
+  <ol
+    className="breadcrumb"
+  >
+    <li
+      className="breadcrumb-item"
+    >
+      <a
+        aria-current="page"
+        className="sc-gsTCUz ffWKEV active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Shipping
+      </a>
+    </li>
+    <li
+      className="breadcrumb-item"
+    >
+      <a
+        aria-current={null}
+        className="sc-gsTCUz ffWKEV"
+        href="/billing"
+        onClick={[Function]}
+      >
+        Billing
+      </a>
+    </li>
+    <li
+      className="breadcrumb-item"
+    >
+      <a
+        aria-current={null}
+        className="sc-gsTCUz ffWKEV"
+        href="/payment"
+        onClick={[Function]}
+      >
+        Payment
+      </a>
+    </li>
+  </ol>
+</nav>
+`;
