@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderCost component should match snapshot 1`] = `
+<div
+  className="sc-bkzZxe gSnmCg"
+>
+  <img
+    alt="Bag"
+    src="https://via.placeholder.com/50"
+  />
+  <div
+    className="sc-idOhPF tkVTk"
+  >
+    <span>
+      Bag
+    </span>
+    <span>
+      Black
+    </span>
+    <span>
+      Quantity: 
+      1
+    </span>
+  </div>
+  <span>
+    $
+    20
+  </span>
+</div>
+`;
