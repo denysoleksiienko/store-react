@@ -1,4 +1,5 @@
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import { Typeahead } from 'react-bootstrap-typeahead';
 
 const props = {
@@ -12,6 +13,11 @@ const props = {
 };
 
 describe('Button component', () => {
+  it('should be defined', () => {
+    const wrapper = shallow(<Typeahead {...props} />);
+    expect(wrapper).toBeDefined();
+  });
+
   it('should match snapshot', () => {
     const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
     expect(wrapper).toMatchSnapshot();
