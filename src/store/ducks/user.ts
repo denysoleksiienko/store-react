@@ -24,7 +24,7 @@ export interface IUserState {
   zip: string;
 }
 
-const initialState: IUserState = {
+export const initialState: IUserState = {
   name: '',
   phone: '',
   email: '',

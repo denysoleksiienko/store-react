@@ -9,7 +9,7 @@ export const REQUESTED_PRODUCTS_SUCCEEDED: string = 'REQUESTED_PRODUCTS_SUCCEEDE
 export const REQUESTED_PRODUCTS_FAILED: string = 'REQUESTED_PRODUCTS_FAILED';
 const FETCHED_PRODUCTS: string = 'FETCHED_PRODUCTS';
 
-const initialState: IProductState = {
+export const initialState: IProductState = {
   products: [],
   error: false,
 };
