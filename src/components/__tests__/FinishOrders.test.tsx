@@ -1,5 +1,6 @@
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
+import { getByTestId, render, screen } from '@testing-library/react';
 
 import { FinishOrders } from '../FinishOrders';
 import { IFinishOrder } from 'interfaces/Orders';
@@ -18,11 +19,23 @@ describe('FinishOrders component', () => {
 
   beforeEach(() => {
     component = setUp(props);
+
+    render(<FinishOrders {...props} />);
   });
 
   it('should be defined', () => {
     const wrapper = component.find(Col);
     expect(wrapper).toBeDefined();
+  });
+
+  it('render title', () => {
+    expect(screen.getByText('Thank you for your order!')).toBeInTheDocument();
+  });
+
+  it('render order information', () => {
+    expect(getByTestId(document.documentElement, 'order-num')).toBeInTheDocument();
+    expect(getByTestId(document.documentElement, 'order-email')).toBeInTheDocument();
+    expect(getByTestId(document.documentElement, 'order-delivery')).toBeInTheDocument();
   });
 
   it('should match snapshot', () => {

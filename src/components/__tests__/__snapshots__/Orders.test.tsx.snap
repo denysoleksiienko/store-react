@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Orders should match snapshot 1`] = `
+Array [
+  <h5
+    className="sc-kstrdz llctVS"
+  >
+    Order Summary
+  </h5>,
+  <div
+    className="sc-hBEYos kpoNDI"
+    data-testid="summ-wrap"
+  >
+    <div
+      className="sc-fodVxV kZMtlF"
+      data-testid="summ-list"
+    >
+      <div
+        className="sc-bkzZxe gSnmCg"
+      >
+        <img
+          alt="Bag"
+          src="/img-bag.png"
+        />
+        <div
+          className="sc-idOhPF tkVTk"
+        >
+          <span>
+            Bag
+          </span>
+          <span>
+            black
+          </span>
+          <span>
+            Quantity: 
+            1
+          </span>
+        </div>
+        <span>
+          $
+          50
+        </span>
+      </div>
+    </div>
+    <div
+      className="sc-fFubgz igwYDr"
+    >
+      <div
+        className="sc-hHftDr gKZifq"
+      >
+        <span>
+          Subtotal
+        </span>
+        <span>
+          $
+          50
+        </span>
+      </div>
+      <div
+        className="sc-hHftDr gKZifq"
+      >
+        <span>
+          Shipping
+        </span>
+        <span>
+          Free
+        </span>
+      </div>
+      <div
+        className="sc-hHftDr gKZifq"
+      >
+        <span>
+          Taxes
+        </span>
+        <span>
+          $10
+        </span>
+      </div>
+      <hr />
+      <div
+        className="sc-hHftDr gKZifq"
+      >
+        <span
+          className="sc-dIUggk jiCKLJ"
+        >
+          Total
+        </span>
+        <span
+          className="sc-dIUggk jiCKLJ"
+        >
+          $
+          60
+        </span>
+      </div>
+    </div>
+  </div>,
+]
+`;

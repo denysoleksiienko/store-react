@@ -17,8 +17,8 @@ export const Orders: React.FC<IOrders> = ({ orders, fetchProducts }) => {
     <>
       <SummaryTitle>Order Summary</SummaryTitle>
 
-      <SummaryWrap>
-        <SummaryList>
+      <SummaryWrap data-testid="summ-wrap">
+        <SummaryList data-testid="summ-list">
           {orders.map(({ id, img, title, color, qty, price }: IProducts) => {
             subtotal += price;
             return <OrderItem key={id} img={img} title={title} color={color} qty={qty} price={price} />;

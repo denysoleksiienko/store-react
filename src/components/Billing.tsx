@@ -75,10 +75,11 @@ export const Billing: React.FC<IUserProps> = ({
 
       <Title>Billing Information</Title>
 
-      <Form noValidate onSubmit={formik.handleSubmit}>
+      <Form data-testid="form-billing" noValidate onSubmit={formik.handleSubmit}>
         <Form.Group as={Col} md="10">
           <Label>Billing Contact</Label>
           <Form.Control
+            data-testid="name"
             name="name"
             type="text"
             placeholder="Full Name"
@@ -87,12 +88,14 @@ export const Billing: React.FC<IUserProps> = ({
             onBlur={formik.handleBlur}
             isValid={formik.touched.name && !formik.errors.name}
             isInvalid={!!formik.errors.name && formik.touched.name}
+            required
           />
           <Form.Control.Feedback type="invalid">{formik.errors.name}</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group as={Col} md="10">
           <Form.Control
+            data-testid="email"
             name="email"
             type="email"
             placeholder="Email Address"
@@ -101,6 +104,7 @@ export const Billing: React.FC<IUserProps> = ({
             onBlur={formik.handleBlur}
             isValid={formik.touched.email && !formik.errors.email}
             isInvalid={!!formik.errors.email && formik.touched.email}
+            required
           />
           <Form.Control.Feedback type="invalid">{formik.errors.email}</Form.Control.Feedback>
         </Form.Group>
@@ -109,6 +113,7 @@ export const Billing: React.FC<IUserProps> = ({
           <Label>Billing Address</Label>
 
           <Form.Control
+            data-testid="address"
             name="address"
             type="text"
             placeholder="Street Address"
@@ -117,11 +122,13 @@ export const Billing: React.FC<IUserProps> = ({
             onBlur={formik.handleBlur}
             isValid={formik.touched.address && !formik.errors.address}
             isInvalid={!!formik.errors.address && formik.touched.address}
+            required
           />
           <Form.Control.Feedback type="invalid">{formik.errors.address}</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="10">
           <Form.Control
+            data-testid="optional"
             name="optional"
             type="text"
             placeholder="Apt, Suite, Bldg, Gate Code. (optional)"
@@ -130,11 +137,13 @@ export const Billing: React.FC<IUserProps> = ({
             onBlur={formik.handleBlur}
             isValid={formik.touched.optional && !formik.errors.optional}
             isInvalid={!!formik.errors.optional && formik.touched.optional}
+            required
           />
           <Form.Control.Feedback type="invalid">{formik.errors.optional}</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="10">
           <Form.Control
+            data-testid="city"
             name="city"
             type="text"
             placeholder="City"
@@ -143,12 +152,14 @@ export const Billing: React.FC<IUserProps> = ({
             onBlur={formik.handleBlur}
             isValid={formik.touched.city && !formik.errors.city}
             isInvalid={!!formik.errors.city && formik.touched.city}
+            required
           />
           <Form.Control.Feedback type="invalid">{formik.errors.city}</Form.Control.Feedback>
         </Form.Group>
         <FormGroupInner>
           <Form.Group as={Col} md="6">
             <CountrySelect
+              data-testid="country"
               placeholder="Country"
               onChange={handleChangeCountry}
               options={COUNTRIES}
@@ -161,6 +172,7 @@ export const Billing: React.FC<IUserProps> = ({
 
           <Form.Group as={Col} md="4">
             <Form.Control
+              data-testid="zip"
               name="zip"
               type="text"
               placeholder="Zip"
@@ -169,6 +181,7 @@ export const Billing: React.FC<IUserProps> = ({
               onBlur={formik.handleBlur}
               isValid={formik.touched.zip && !formik.errors.zip}
               isInvalid={!!formik.errors.zip && formik.touched.zip}
+              required
             />
             <Form.Control.Feedback type="invalid">{formik.errors.zip}</Form.Control.Feedback>
           </Form.Group>

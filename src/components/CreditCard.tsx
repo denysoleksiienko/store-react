@@ -46,7 +46,7 @@ export const CreditCard: React.FC<ICreditCard> = ({
       </Form.Group>
       <FormGroupInner>
         <Form.Group as={Col} md="4">
-          <Label>Expiry date</Label>
+          <Label>Expiry Date</Label>
           <Form.Control
             {...getExpiryDateProps({ onBlur: onBlur, onChange: onChange })}
             isValid={isValidDate}

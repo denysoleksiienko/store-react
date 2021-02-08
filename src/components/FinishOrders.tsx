@@ -10,13 +10,13 @@ export const FinishOrders: React.FC<IFinishOrder> = ({ user }) => (
     <Wrap>
       <Title>Thank you for your order!</Title>
       <Inner>
-        <OrderNumber>
+        <OrderNumber data-testid="order-num">
           Order number is: <b>188787788</b>
         </OrderNumber>
-        <p>
+        <p data-testid="order-email">
           You will recieve an email confirmation shortly to <SpanEmail>{user.email}</SpanEmail>
         </p>
-        <p>
+        <p data-testid="order-delivery">
           Estimated delivery Day is <br />
           <SpanDelivery>Friday 1st April 2016</SpanDelivery>
         </p>

@@ -17,13 +17,16 @@ exports[`FinishOrders component should match snapshot 1`] = `
     >
       <p
         className="sc-iqHYGH lkcwNC"
+        data-testid="order-num"
       >
         Order number is: 
         <b>
           188787788
         </b>
       </p>
-      <p>
+      <p
+        data-testid="order-email"
+      >
         You will recieve an email confirmation shortly to 
         <span
           className="sc-crrsfI AcZYB"
@@ -31,7 +34,9 @@ exports[`FinishOrders component should match snapshot 1`] = `
           google@gmail.com
         </span>
       </p>
-      <p>
+      <p
+        data-testid="order-delivery"
+      >
         Estimated delivery Day is 
         <br />
         <span

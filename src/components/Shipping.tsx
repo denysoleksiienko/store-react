@@ -75,11 +75,12 @@ export const Shipping: React.FC<IUserProps> = ({
       <Breadcrumbs />
       <Title>Shipping Info</Title>
 
-      <Form noValidate onSubmit={formik.handleSubmit}>
+      <Form data-testid="form-shipping" noValidate onSubmit={formik.handleSubmit}>
         <Form.Group as={Col} md="10">
           <Label>Recipient</Label>
 
           <Form.Control
+            data-testid="name"
             name="name"
             type="text"
             placeholder="Full Name"
@@ -88,12 +89,14 @@ export const Shipping: React.FC<IUserProps> = ({
             onBlur={formik.handleBlur}
             isValid={formik.touched.name && !formik.errors.name}
             isInvalid={!!formik.errors.name && formik.touched.name}
+            required
           />
           <Form.Control.Feedback type="invalid">{formik.errors.name}</Form.Control.Feedback>
         </Form.Group>
         <FormGroupInner>
           <Form.Group as={Col} md="6">
             <Form.Control
+              data-testid="phone"
               name="phone"
               type="text"
               placeholder="Daytime Phone"
@@ -102,6 +105,7 @@ export const Shipping: React.FC<IUserProps> = ({
               onBlur={formik.handleBlur}
               isValid={formik.touched.phone && !formik.errors.phone}
               isInvalid={!!formik.errors.phone && formik.touched.phone}
+              required
             />
 
             <Form.Control.Feedback type="invalid">{formik.errors.phone}</Form.Control.Feedback>
@@ -114,6 +118,7 @@ export const Shipping: React.FC<IUserProps> = ({
           <Label>Address</Label>
 
           <Form.Control
+            data-testid="address"
             name="address"
             type="text"
             placeholder="Street Address"
@@ -122,11 +127,13 @@ export const Shipping: React.FC<IUserProps> = ({
             onBlur={formik.handleBlur}
             isValid={formik.touched.address && !formik.errors.address}
             isInvalid={!!formik.errors.address && formik.touched.address}
+            required
           />
           <Form.Control.Feedback type="invalid">{formik.errors.address}</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="10">
           <Form.Control
+            data-testid="optional"
             name="optional"
             type="text"
             placeholder="Apt, Suite, Bldg, Gate Code. (optional)"
@@ -135,12 +142,14 @@ export const Shipping: React.FC<IUserProps> = ({
             onBlur={formik.handleBlur}
             isValid={formik.touched.optional && !formik.errors.optional}
             isInvalid={!!formik.errors.optional && formik.touched.optional}
+            required
           />
           <Form.Control.Feedback type="invalid">{formik.errors.optional}</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="10">
           <InputGroup>
             <Form.Control
+              data-testid="city"
               name="city"
               type="text"
               placeholder="City"
@@ -149,10 +158,12 @@ export const Shipping: React.FC<IUserProps> = ({
               onBlur={formik.handleBlur}
               isValid={formik.touched.city && !formik.errors.city}
               isInvalid={!!formik.errors.city && formik.touched.city}
+              required
             />
             <InputGroup.Prepend>
               <InputGroup.Text id="inputGroupPrepend">
                 <LocationIcon
+                  data-testid="icon-location"
                   src="https://www.flaticon.com/svg/static/icons/svg/1016/1016056.svg"
                   onClick={(e: React.MouseEvent<HTMLImageElement, MouseEvent>) => fetchCity(e)}
                 />
@@ -164,6 +175,7 @@ export const Shipping: React.FC<IUserProps> = ({
         <FormGroupInner>
           <Form.Group as={Col} md="6">
             <CountrySelect
+              data-testid="country"
               placeholder="Country"
               onChange={handleChangeCountry}
               options={COUNTRIES}
@@ -176,6 +188,7 @@ export const Shipping: React.FC<IUserProps> = ({
 
           <Form.Group as={Col} md="4">
             <Form.Control
+              data-testid="zip"
               name="zip"
               type="text"
               placeholder="Zip"
@@ -184,6 +197,7 @@ export const Shipping: React.FC<IUserProps> = ({
               onBlur={formik.handleBlur}
               isValid={formik.touched.zip && !formik.errors.zip}
               isInvalid={!!formik.errors.zip && formik.touched.zip}
+              required
             />
             <Form.Control.Feedback type="invalid">{formik.errors.zip}</Form.Control.Feedback>
           </Form.Group>

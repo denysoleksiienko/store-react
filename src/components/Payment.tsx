@@ -38,11 +38,12 @@ export const Payment: React.FC = () => {
         <Span>This is a secure 128-bit SSL encrypted payment</Span>
       </SecureInfo>
 
-      <Form noValidate onSubmit={formik.handleSubmit}>
+      <Form data-testid="form-payment" noValidate onSubmit={formik.handleSubmit}>
         <InputsWrap>
           <Form.Group as={Col} md="10">
             <Label>Cardholder Name</Label>
             <Form.Control
+              data-testid="name"
               name="name"
               type="text"
               placeholder="Name as it appears on your card"
@@ -51,6 +52,7 @@ export const Payment: React.FC = () => {
               onBlur={formik.handleBlur}
               isValid={formik.touched.name && !formik.errors.name}
               isInvalid={!!formik.errors.name && formik.touched.name}
+              required
             />
             <Form.Control.Feedback type="invalid">{formik.errors.name}</Form.Control.Feedback>
           </Form.Group>
@@ -71,7 +73,7 @@ export const Payment: React.FC = () => {
         />
 
         <Form.Group as={Col} md="6">
-          <Button title="Pay Securely" type="submit" />
+          <Button title="Pay Securely" type="submit" data-testid="btn-payment" />
         </Form.Group>
       </Form>
     </Col>

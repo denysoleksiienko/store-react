@@ -1,14 +1,11 @@
 import { shallow } from 'enzyme';
+import { getByLabelText, getByTestId, render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import { CreditCard } from '../CreditCard';
 
-const setUp = () => shallow(<CreditCard />);
-
 describe('credit card', () => {
-  let component: any;
-
   beforeEach(() => {
-    component = setUp();
+    render(<CreditCard />);
   });
 
   it('should be defined', () => {
@@ -21,8 +18,9 @@ describe('credit card', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should have credit number input', () => {
-    const inputNumber = component.find('#cardNumber');
-    expect(inputNumber.number()).toBe(Number('4242424242424242'));
+  it('render credit card labels', () => {
+    expect(screen.getByText('Card Number')).toBeInTheDocument();
+    expect(screen.getByText('Expiry Date')).toBeInTheDocument();
+    expect(screen.getByText('Security Code')).toBeInTheDocument();
   });
 });
